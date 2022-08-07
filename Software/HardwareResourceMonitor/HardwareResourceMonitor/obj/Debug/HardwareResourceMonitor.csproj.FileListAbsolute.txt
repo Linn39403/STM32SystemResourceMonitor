@@ -1,0 +1,8 @@
+E:\Projects\Personal\SystemHardwareMonitor\Software\HardwareResourceMonitor\HardwareResourceMonitor\bin\Debug\HardwareResourceMonitor.exe.config
+E:\Projects\Personal\SystemHardwareMonitor\Software\HardwareResourceMonitor\HardwareResourceMonitor\bin\Debug\HardwareResourceMonitor.exe
+E:\Projects\Personal\SystemHardwareMonitor\Software\HardwareResourceMonitor\HardwareResourceMonitor\bin\Debug\HardwareResourceMonitor.pdb
+E:\Projects\Personal\SystemHardwareMonitor\Software\HardwareResourceMonitor\HardwareResourceMonitor\bin\Debug\OpenHardwareMonitorLib.dll
+E:\Projects\Personal\SystemHardwareMonitor\Software\HardwareResourceMonitor\HardwareResourceMonitor\obj\Debug\HardwareResourceMonitor.csproj.CoreCompileInputs.cache
+E:\Projects\Personal\SystemHardwareMonitor\Software\HardwareResourceMonitor\HardwareResourceMonitor\obj\Debug\HardwareResourceMonitor.csproj.CopyComplete
+E:\Projects\Personal\SystemHardwareMonitor\Software\HardwareResourceMonitor\HardwareResourceMonitor\obj\Debug\HardwareResourceMonitor.exe
+E:\Projects\Personal\SystemHardwareMonitor\Software\HardwareResourceMonitor\HardwareResourceMonitor\obj\Debug\HardwareResourceMonitor.pdb
