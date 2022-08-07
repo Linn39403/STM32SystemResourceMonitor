@@ -150,10 +150,15 @@ void TranslateToCPUTemperature(RingBuffer  *inputRingBuff)
 	char * found;
 	int resultCnt=0;
 	int length = RingBuffer_GetDataLength(inputRingBuff);
+	
 	//Copy ring buffer into inputString
 	RingBuffer_Read(inputRingBuff, &inputString[0], length );
+	
+	//Clear the strings
 	memset(SystemInfo.CPUTemp,0, sizeof(SystemInfo.CPUTemp));
 	memset(SystemInfo.GPUTemp,0, sizeof(SystemInfo.GPUTemp));
+	memset(SystemInfo.GPUTemp,0, sizeof(SystemInfo.RAMUsage));
+	
 	//Search "CPU Package :"
 	found = strstr((const char*)&inputString[0],(const char *)"CPU Package:");
 	if( found != NULL )
@@ -167,7 +172,6 @@ void TranslateToCPUTemperature(RingBuffer  *inputRingBuff)
 		}	
 		SystemInfo.CPUTemp[resultCnt++] = ' '; SystemInfo.CPUTemp[resultCnt++] = 'd'; SystemInfo.CPUTemp[resultCnt++] = 'e'; 
 		SystemInfo.CPUTemp[resultCnt++] = 'g'; SystemInfo.CPUTemp[resultCnt++] = 'C';
-		//SystemInfo.CPUTemp = atof(resultString);
 		//clear resultString for next usage
 		memset(resultString, 0, sizeof(resultCnt));
 	}
@@ -177,15 +181,28 @@ void TranslateToCPUTemperature(RingBuffer  *inputRingBuff)
 	found = strstr((const char*)&inputString[0],(const char *)"GPU Core:");
 	if( found != NULL )
 	{
-    //skip up to ":" and copy up to "\n"
+    //skip up to ":" and copy up to ","
 		found = strstr((const char*)found, (const char *)":");
-		while(*(++found)!='\n')
+		while(*(++found)!=',')
 		{
 			SystemInfo.GPUTemp[resultCnt++] = *found;
 		}	
 		SystemInfo.GPUTemp[resultCnt++] = ' '; SystemInfo.GPUTemp[resultCnt++] = 'd'; SystemInfo.GPUTemp[resultCnt++] = 'e'; 
 		SystemInfo.GPUTemp[resultCnt++] = 'g'; SystemInfo.GPUTemp[resultCnt++] = 'C';
-		//SystemInfo.GPUTemp = atof(resultString);		
+	}
+	
+	//Search "Used Memory :"
+  resultCnt = 0;
+	found = strstr((const char*)&inputString[0],(const char *)"Used Memory:");
+	if( found != NULL )
+	{
+    //skip up to ":" and copy up to "\n"
+		found = strstr((const char*)found, (const char *)":");
+		while(*(++found)!='\n')
+		{
+			SystemInfo.RAMUsage[resultCnt++] = *found;
+		}	
+		SystemInfo.RAMUsage[resultCnt++] = ' '; SystemInfo.RAMUsage[resultCnt++] = 'G'; SystemInfo.RAMUsage[resultCnt++] = 'B'; 
 	}
 }
 

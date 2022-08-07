@@ -32,9 +32,11 @@ namespace HardwareResourceMonitor
             computer.Open();
             computer.CPUEnabled = true;
             computer.GPUEnabled = true;
+            computer.RAMEnabled = true;
             computer.Accept(updateVisitor);
             string CPUInfoString = "";
             string GPUInfoString = "";
+            string RAMInfoString = "";
             string SystemInfoString = "";
             for (int i = 0; i < computer.Hardware.Length; i++)
             {
@@ -64,8 +66,20 @@ namespace HardwareResourceMonitor
                         }
                     }
                 }
+                if (computer.Hardware[i].HardwareType == HardwareType.RAM)
+                {
+                    RAMInfoString = "";
+                    for (int j = 0; j < computer.Hardware[i].Sensors.Length; j++)
+                    {
+                        if (computer.Hardware[i].Sensors[j].SensorType == SensorType.Data &&
+                            computer.Hardware[i].Sensors[j].Name == "Used Memory")
+                        {
+                            RAMInfoString += computer.Hardware[i].Sensors[j].Name + ":" + computer.Hardware[i].Sensors[j].Value.ToString();
+                        }
+                    }
+                }
             }
-            SystemInfoString = CPUInfoString + "," + GPUInfoString;
+            SystemInfoString = CPUInfoString + "," + GPUInfoString + "," + RAMInfoString;
             Console.WriteLine(SystemInfoString);
             _serialPort.WriteLine(SystemInfoString);
             computer.Close();
