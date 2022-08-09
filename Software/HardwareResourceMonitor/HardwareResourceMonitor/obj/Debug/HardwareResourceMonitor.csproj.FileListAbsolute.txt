@@ -10,7 +10,6 @@ E:\Projects\Personal\ResourceMonitor\Software\HardwareResourceMonitor\HardwareRe
 E:\Projects\Personal\ResourceMonitor\Software\HardwareResourceMonitor\HardwareResourceMonitor\bin\Debug\HardwareResourceMonitor.exe
 E:\Projects\Personal\ResourceMonitor\Software\HardwareResourceMonitor\HardwareResourceMonitor\bin\Debug\HardwareResourceMonitor.pdb
 E:\Projects\Personal\ResourceMonitor\Software\HardwareResourceMonitor\HardwareResourceMonitor\bin\Debug\OpenHardwareMonitorLib.dll
-E:\Projects\Personal\ResourceMonitor\Software\HardwareResourceMonitor\HardwareResourceMonitor\obj\Debug\HardwareResourceMonitor.csproj.AssemblyReference.cache
 E:\Projects\Personal\ResourceMonitor\Software\HardwareResourceMonitor\HardwareResourceMonitor\obj\Debug\HardwareResourceMonitor.csproj.CoreCompileInputs.cache
 E:\Projects\Personal\ResourceMonitor\Software\HardwareResourceMonitor\HardwareResourceMonitor\obj\Debug\HardwareResourceMonitor.csproj.CopyComplete
 E:\Projects\Personal\ResourceMonitor\Software\HardwareResourceMonitor\HardwareResourceMonitor\obj\Debug\HardwareResourceMonitor.exe

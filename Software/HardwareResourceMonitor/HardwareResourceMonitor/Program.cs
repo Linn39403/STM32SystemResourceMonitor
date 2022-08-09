@@ -35,8 +35,11 @@ namespace HardwareResourceMonitor
             computer.RAMEnabled = true;
             computer.Accept(updateVisitor);
             string CPUInfoString = "";
+            string CPULoadString = "";
             string GPUInfoString = "";
+            string GPULoadString = "";
             string RAMInfoString = "";
+            string SystemTimeString = "";
             string SystemInfoString = "";
             for (int i = 0; i < computer.Hardware.Length; i++)
             {
@@ -48,9 +51,14 @@ namespace HardwareResourceMonitor
                         if (computer.Hardware[i].Sensors[j].SensorType == SensorType.Temperature &&
                             computer.Hardware[i].Sensors[j].Name == "CPU Package")
                         {
-                            CPUInfoString += computer.Hardware[i].Sensors[j].Name + ":" + computer.Hardware[i].Sensors[j].Value.ToString() ;
+                            CPUInfoString += computer.Hardware[i].Sensors[j].Name + ":" + computer.Hardware[i].Sensors[j].Value.ToString();
                             // Console.WriteLine(CPUInfoString);
                             //_serialPort.WriteLine(computer.Hardware[i].Sensors[j].Name + ":" + computer.Hardware[i].Sensors[j].Value.ToString() );
+                        }
+                        if (computer.Hardware[i].Sensors[j].SensorType == SensorType.Load &&
+                            computer.Hardware[i].Sensors[j].Name == "CPU Total")
+                        {
+                            CPULoadString += computer.Hardware[i].Sensors[j].Name + ":" + computer.Hardware[i].Sensors[j].Value.ToString();
                         }
                     }
                 }
@@ -64,6 +72,11 @@ namespace HardwareResourceMonitor
                         {
                             GPUInfoString += computer.Hardware[i].Sensors[j].Name + ":" + computer.Hardware[i].Sensors[j].Value.ToString();
                         }
+                        if (computer.Hardware[i].Sensors[j].SensorType == SensorType.Load &&
+                                computer.Hardware[i].Sensors[j].Name == "GPU Core")
+                        {
+                            GPULoadString += computer.Hardware[i].Sensors[j].Name + ":" + computer.Hardware[i].Sensors[j].Value.ToString();
+                        }
                     }
                 }
                 if (computer.Hardware[i].HardwareType == HardwareType.RAM)
@@ -74,13 +87,22 @@ namespace HardwareResourceMonitor
                         if (computer.Hardware[i].Sensors[j].SensorType == SensorType.Data &&
                             computer.Hardware[i].Sensors[j].Name == "Used Memory")
                         {
+                            
+                        }
+                        if (computer.Hardware[i].Sensors[j].SensorType == SensorType.Load &&
+                            computer.Hardware[i].Sensors[j].Name == "Memory")
+                        {
                             RAMInfoString += computer.Hardware[i].Sensors[j].Name + ":" + computer.Hardware[i].Sensors[j].Value.ToString();
                         }
                     }
                 }
             }
-            SystemInfoString = CPUInfoString + "," + GPUInfoString + "," + RAMInfoString;
+
+            //SystemTime 
+            SystemTimeString = "Time:"+DateTime.Now.ToString("h-mm-ss");
+            SystemInfoString = CPULoadString + "," + GPULoadString + "," + RAMInfoString + "," + SystemTimeString;
             Console.WriteLine(SystemInfoString);
+
             _serialPort.WriteLine(SystemInfoString);
             computer.Close();
         }
@@ -88,7 +110,7 @@ namespace HardwareResourceMonitor
         {
             //Temp Choose COM7
             _serialPort = new SerialPort();
-            _serialPort.PortName = "COM7";
+            _serialPort.PortName = "COM9";
             _serialPort.BaudRate = 115200;
             _serialPort.DataBits = 8;
             _serialPort.Parity = Parity.None;
