@@ -2,8 +2,6 @@
   ******************************************************************************
   * @file    stm32746g_discovery_lcd.h
   * @author  MCD Application Team
-  * @version V1.1.0
-  * @date    22-April-2016
   * @brief   This file contains the common defines and functions prototypes for
   *          the stm32746g_discovery_lcd.c driver.
   ******************************************************************************
@@ -53,7 +51,7 @@
 #include "stm32746g_discovery_sdram.h"
  
 #include "stm32746g_discovery.h"
-#include "fonts.h"
+#include "../../../Utilities/Fonts/fonts.h"
   
 /** @addtogroup BSP
   * @{

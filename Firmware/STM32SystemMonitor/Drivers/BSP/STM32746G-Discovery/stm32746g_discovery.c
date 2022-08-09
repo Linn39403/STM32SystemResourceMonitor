@@ -2,8 +2,6 @@
   ******************************************************************************
   * @file    stm32746g_discovery.c
   * @author  MCD Application Team
-  * @version V1.1.0
-  * @date    22-April-2016
   * @brief   This file provides a set of firmware functions to manage LEDs, 
   *          push-buttons and COM ports available on STM32746G-Discovery
   *          board(MB1191) from STMicroelectronics.
@@ -37,6 +35,13 @@
   ******************************************************************************
   */ 
 
+/* Dependencies
+- stm32f7xx_hal_cortex.c
+- stm32f7xx_hal_gpio.c
+- stm32f7xx_hal_uart.c
+- stm32f7xx_hal_i2c.c
+EndDependencies */
+
 /* Includes ------------------------------------------------------------------*/
 #include "stm32746g_discovery.h"
 
@@ -63,11 +68,11 @@
   * @{
   */
 /**
- * @brief STM32746G DISCOVERY BSP Driver version number V1.1.0
+ * @brief STM32746G DISCOVERY BSP Driver version number V2.0.2
    */
-#define __STM32746G_DISCO_BSP_VERSION_MAIN   (0x01) /*!< [31:24] main version */
-#define __STM32746G_DISCO_BSP_VERSION_SUB1   (0x01) /*!< [23:16] sub1 version */
-#define __STM32746G_DISCO_BSP_VERSION_SUB2   (0x00) /*!< [15:8]  sub2 version */
+#define __STM32746G_DISCO_BSP_VERSION_MAIN   (0x02) /*!< [31:24] main version */
+#define __STM32746G_DISCO_BSP_VERSION_SUB1   (0x00) /*!< [23:16] sub1 version */
+#define __STM32746G_DISCO_BSP_VERSION_SUB2   (0x02) /*!< [15:8]  sub2 version */
 #define __STM32746G_DISCO_BSP_VERSION_RC     (0x00) /*!< [7:0]  release candidate */
 #define __STM32746G_DISCO_BSP_VERSION         ((__STM32746G_DISCO_BSP_VERSION_MAIN << 24)\
                                              |(__STM32746G_DISCO_BSP_VERSION_SUB1 << 16)\

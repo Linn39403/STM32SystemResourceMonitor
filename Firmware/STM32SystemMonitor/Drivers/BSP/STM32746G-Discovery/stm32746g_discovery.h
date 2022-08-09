@@ -2,8 +2,6 @@
   ******************************************************************************
   * @file    stm32746g_discovery.h
   * @author  MCD Application Team
-  * @version V1.1.0
-  * @date    22-April-2016
   * @brief   This file contains definitions for STM32746G_DISCOVERY's LEDs,
   *          push-buttons and COM ports hardware resources.
   ******************************************************************************
@@ -282,7 +280,6 @@ typedef enum
 /* I2C TIMING is calculated from APB1 source clock = 50 MHz */
 /* Due to the big MOFSET capacity for adapting the camera level the rising time is very large (>1us) */
 /* 0x40912732 takes in account the big rising and aims a clock of 100khz */
-/* this value might be adapted when next Rev Birdie board is available */
 #ifndef DISCOVERY_I2Cx_TIMING  
 #define DISCOVERY_I2Cx_TIMING                      ((uint32_t)0x40912732)  
 #endif /* DISCOVERY_I2Cx_TIMING */

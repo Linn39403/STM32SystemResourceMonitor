@@ -2,8 +2,6 @@
   ******************************************************************************
   * @file    stm32746g_discovery_camera.c
   * @author  MCD Application Team
-  * @version V1.1.0
-  * @date    22-April-2016
   * @brief   This file includes the driver for Camera modules mounted on
   *          STM32746G-Discovery board.
   @verbatim
@@ -59,6 +57,16 @@
   *
   ******************************************************************************
   */ 
+
+/* Dependencies
+- stm32746g_discovery.c
+- stm32f7xx_hal_dcmi.c
+- stm32f7xx_hal_dma.c
+- stm32f7xx_hal_gpio.c
+- stm32f7xx_hal_cortex.c
+- stm32f7xx_hal_rcc_ex.h
+- ov9655.c
+EndDependencies */
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32746g_discovery_camera.h"

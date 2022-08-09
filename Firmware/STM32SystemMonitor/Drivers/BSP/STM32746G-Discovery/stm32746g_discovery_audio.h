@@ -2,8 +2,6 @@
   ******************************************************************************
   * @file    stm32746g_discovery_audio.h
   * @author  MCD Application Team
-  * @version V1.1.0
-  * @date    22-April-2016
   * @brief   This file contains the common defines and functions prototypes for
   *          the stm32746g_discovery_audio.c driver.
   ******************************************************************************
@@ -181,8 +179,7 @@
 /*------------------------------------------------------------------------------
                             OUTPUT DEVICES definition
 ------------------------------------------------------------------------------*/
-
-/* Alias on existing output devices to adapt to Birdie discovery board 2 headphones output */
+/* Alias on existing output devices to adapt for 2 headphones output */
 #define OUTPUT_DEVICE_HEADPHONE1 OUTPUT_DEVICE_HEADPHONE
 #define OUTPUT_DEVICE_HEADPHONE2 OUTPUT_DEVICE_SPEAKER /* Headphone2 is connected to Speaker output of the wm8994 */
    
@@ -246,8 +243,9 @@ void  BSP_AUDIO_OUT_MspDeInit(SAI_HandleTypeDef *hsai, void *Params);
 /** @defgroup STM32746G_DISCOVERY_AUDIO_IN_Exported_Functions STM32746G_DISCOVERY_AUDIO_IN Exported Functions
   * @{
   */
-uint8_t BSP_AUDIO_IN_Init(uint16_t InputDevice, uint8_t Volume, uint32_t AudioFreq);
-uint8_t BSP_AUDIO_IN_OUT_Init(uint16_t InputDevice, uint16_t OutputDevice, uint8_t Volume, uint32_t AudioFreq);
+uint8_t BSP_AUDIO_IN_Init(uint32_t AudioFreq, uint32_t BitRes, uint32_t ChnlNbr);
+uint8_t BSP_AUDIO_IN_InitEx(uint16_t InputDevice, uint32_t AudioFreq, uint32_t BitRes, uint32_t ChnlNbr);
+uint8_t BSP_AUDIO_IN_OUT_Init(uint16_t InputDevice, uint16_t OutputDevice, uint32_t AudioFreq, uint32_t BitRes, uint32_t ChnlNbr);
 uint8_t BSP_AUDIO_IN_Record(uint16_t *pData, uint32_t Size);
 uint8_t BSP_AUDIO_IN_Stop(uint32_t Option);
 uint8_t BSP_AUDIO_IN_Pause(void);

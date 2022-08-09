@@ -2,8 +2,6 @@
   ******************************************************************************
   * @file    stm32746g_discovery_lcd.c
   * @author  MCD Application Team
-  * @version V1.1.0
-  * @date    22-April-2016
   * @brief   This file includes the driver for Liquid Crystal Display (LCD) module
   *          mounted on STM32746G-Discovery board.
   @verbatim
@@ -68,14 +66,32 @@
   ******************************************************************************
   */ 
 
+/* Dependencies
+- stm32746g_discovery.c
+- stm32746g_discovery_sdram.c
+- stm32f7xx_hal_ltdc.c
+- stm32f7xx_hal_ltdc_ex.c
+- stm32f7xx_hal_dma2d.c
+- stm32f7xx_hal_rcc_ex.c
+- stm32f7xx_hal_gpio.c
+- stm32f7xx_hal_cortex.c
+- rk043fn48h.h
+- fonts.h
+- font24.c
+- font20.c
+- font16.c
+- font12.c
+- font8.c"
+EndDependencies */
+
 /* Includes ------------------------------------------------------------------*/
 #include "stm32746g_discovery_lcd.h"
-#include "fonts.h"
-#include "font24.c"
-#include "font20.c"
-#include "font16.c"
-#include "font12.c"
-#include "font8.c"
+#include "../../../Utilities/Fonts/fonts.h"
+#include "../../../Utilities/Fonts/font24.c"
+#include "../../../Utilities/Fonts/font20.c"
+#include "../../../Utilities/Fonts/font16.c"
+#include "../../../Utilities/Fonts/font12.c"
+#include "../../../Utilities/Fonts/font8.c"
 
 /** @addtogroup BSP
   * @{
@@ -596,12 +612,12 @@ uint32_t BSP_LCD_ReadPixel(uint16_t Xpos, uint16_t Ypos)
   if(hLtdcHandler.LayerCfg[ActiveLayer].PixelFormat == LTDC_PIXEL_FORMAT_ARGB8888)
   {
     /* Read data value from SDRAM memory */
-    ret = *(__IO uint32_t*) (hLtdcHandler.LayerCfg[ActiveLayer].FBStartAdress + (2*(Ypos*BSP_LCD_GetXSize() + Xpos)));
+    ret = *(__IO uint32_t*) (hLtdcHandler.LayerCfg[ActiveLayer].FBStartAdress + (4*(Ypos*BSP_LCD_GetXSize() + Xpos)));
   }
   else if(hLtdcHandler.LayerCfg[ActiveLayer].PixelFormat == LTDC_PIXEL_FORMAT_RGB888)
   {
     /* Read data value from SDRAM memory */
-    ret = (*(__IO uint32_t*) (hLtdcHandler.LayerCfg[ActiveLayer].FBStartAdress + (2*(Ypos*BSP_LCD_GetXSize() + Xpos))) & 0x00FFFFFF);
+    ret = (*(__IO uint32_t*) (hLtdcHandler.LayerCfg[ActiveLayer].FBStartAdress + (4*(Ypos*BSP_LCD_GetXSize() + Xpos))) & 0x00FFFFFF);
   }
   else if((hLtdcHandler.LayerCfg[ActiveLayer].PixelFormat == LTDC_PIXEL_FORMAT_RGB565) || \
           (hLtdcHandler.LayerCfg[ActiveLayer].PixelFormat == LTDC_PIXEL_FORMAT_ARGB4444) || \
@@ -1025,19 +1041,16 @@ void BSP_LCD_DrawBitmap(uint32_t Xpos, uint32_t Ypos, uint8_t *pbmp)
   uint32_t input_color_mode = 0;
   
   /* Get bitmap data address offset */
-  index = *(__IO uint16_t *) (pbmp + 10);
-  index |= (*(__IO uint16_t *) (pbmp + 12)) << 16;
-  
+  index = pbmp[10] + (pbmp[11] << 8) + (pbmp[12] << 16)  + (pbmp[13] << 24);
+
   /* Read bitmap width */
-  width = *(uint16_t *) (pbmp + 18);
-  width |= (*(uint16_t *) (pbmp + 20)) << 16;
-  
+  width = pbmp[18] + (pbmp[19] << 8) + (pbmp[20] << 16)  + (pbmp[21] << 24);
+
   /* Read bitmap height */
-  height = *(uint16_t *) (pbmp + 22);
-  height |= (*(uint16_t *) (pbmp + 24)) << 16; 
-  
+  height = pbmp[22] + (pbmp[23] << 8) + (pbmp[24] << 16)  + (pbmp[25] << 24);
+
   /* Read bit/pixel */
-  bit_pixel = *(uint16_t *) (pbmp + 28);   
+  bit_pixel = pbmp[28] + (pbmp[29] << 8);  
   
   /* Set the address */
   address = hLtdcHandler.LayerCfg[ActiveLayer].FBStartAdress + (((BSP_LCD_GetXSize()*Ypos) + Xpos)*(4));
@@ -1312,7 +1325,7 @@ __weak void BSP_LCD_MspInit(LTDC_HandleTypeDef *hltdc, void *Params)
 
   /* GPIOI LTDC alternate configuration */
   gpio_init_structure.Pin       = GPIO_PIN_9 | GPIO_PIN_10 | \
-                                  GPIO_PIN_13 | GPIO_PIN_14 | GPIO_PIN_15;
+                                  GPIO_PIN_14 | GPIO_PIN_15;
   gpio_init_structure.Mode      = GPIO_MODE_AF_PP;
   gpio_init_structure.Alternate = GPIO_AF14_LTDC;
   HAL_GPIO_Init(GPIOI, &gpio_init_structure);

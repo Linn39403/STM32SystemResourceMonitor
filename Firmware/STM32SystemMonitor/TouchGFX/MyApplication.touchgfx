@@ -1,0 +1,339 @@
+{
+  "Application": {
+    "Screens": [
+      {
+        "Name": "Screen1",
+        "CanvasBufferSize": 7200,
+        "Components": [
+          {
+            "Type": "Box",
+            "Name": "box1",
+            "Width": 480,
+            "Height": 272,
+            "Color": {
+              "Red": 27,
+              "Green": 40,
+              "Blue": 69
+            }
+          },
+          {
+            "Type": "BoxWithBorder",
+            "Name": "boxWithBorder2",
+            "X": 240,
+            "Y": 7,
+            "Width": 194,
+            "Height": 66,
+            "Color": {
+              "Red": 29,
+              "Green": 44,
+              "Blue": 84
+            },
+            "BorderColor": {
+              "Red": 24,
+              "Green": 40,
+              "Blue": 92
+            },
+            "BorderSize": 5
+          },
+          {
+            "Type": "BoxWithBorder",
+            "Name": "boxWithBorder1",
+            "Width": 203,
+            "Height": 274,
+            "Color": {
+              "Red": 15,
+              "Green": 70,
+              "Blue": 102
+            },
+            "BorderColor": {
+              "Red": 38,
+              "Green": 53,
+              "Blue": 102
+            },
+            "BorderSize": 5
+          },
+          {
+            "Type": "CircleProgress",
+            "Name": "GPUUsageProgress",
+            "X": 125,
+            "Y": 136,
+            "Width": 54,
+            "Height": 54,
+            "Color": {
+              "Red": 26,
+              "Green": 217,
+              "Blue": 58
+            },
+            "CenterX": 27.0,
+            "CenterY": 27.0,
+            "Radius": 20.0,
+            "LineWidth": 10.0,
+            "EndAngle": 360.0,
+            "CapPrecision": "Round",
+            "FileNameBackground": "__designer\\Blue_ProgressIndicators_bg_small_circle_indicator_bg_line_full.png",
+            "ProgressRangeMax": 100,
+            "ProgressInitialValue": 60
+          },
+          {
+            "Type": "CircleProgress",
+            "Name": "CPUUsageProgress",
+            "X": 125,
+            "Y": 67,
+            "Width": 54,
+            "Height": 54,
+            "Color": {
+              "Red": 217,
+              "Green": 61,
+              "Blue": 26
+            },
+            "CenterX": 27.0,
+            "CenterY": 27.0,
+            "Radius": 20.0,
+            "LineWidth": 10.0,
+            "EndAngle": 360.0,
+            "CapPrecision": "Round",
+            "FileNameBackground": "__designer\\Blue_ProgressIndicators_bg_small_circle_indicator_bg_line_full.png",
+            "ProgressRangeMax": 100,
+            "ProgressInitialValue": 60
+          },
+          {
+            "Type": "DigitalClock",
+            "Name": "digitalClock1",
+            "X": 261,
+            "Y": 14,
+            "Width": 190,
+            "Height": 52,
+            "TextColor": {
+              "Red": 255,
+              "Green": 191
+            },
+            "TextId": "__SingleUse_6825",
+            "DisplaySeconds": true,
+            "DisplayLeadingZeroForHourIndicator": true,
+            "InitialHour": 10,
+            "InitialMinute": 10
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textArea1",
+            "X": 6,
+            "Y": 82,
+            "Width": 109,
+            "Height": 24,
+            "TextId": "__SingleUse_D2GZ",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 40,
+              "Green": 196,
+              "Blue": 26
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textArea1_1",
+            "X": 6,
+            "Y": 150,
+            "Width": 111,
+            "Height": 24,
+            "TextId": "__SingleUse_P8Y9",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 40,
+              "Green": 196,
+              "Blue": 26
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "CircleProgress",
+            "Name": "RAMUsageProgress",
+            "X": 125,
+            "Y": 203,
+            "Width": 54,
+            "Height": 54,
+            "Color": {
+              "Red": 217,
+              "Green": 217,
+              "Blue": 26
+            },
+            "CenterX": 27.0,
+            "CenterY": 27.0,
+            "Radius": 20.0,
+            "LineWidth": 10.0,
+            "EndAngle": 360.0,
+            "CapPrecision": "Round",
+            "FileNameBackground": "__designer\\Blue_ProgressIndicators_bg_small_circle_indicator_bg_line_full.png",
+            "ProgressRangeMax": 100,
+            "ProgressInitialValue": 60
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textArea1_1_1",
+            "X": 6,
+            "Y": 215,
+            "Width": 113,
+            "Height": 24,
+            "TextId": "__SingleUse_P0Y2",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 40,
+              "Green": 196,
+              "Blue": 26
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "DynamicGraph",
+            "Name": "dynamicGraph1",
+            "X": 214,
+            "Y": 89,
+            "Width": 259,
+            "Height": 162,
+            "DataSeed": 1901280323,
+            "NumberOfValues": 100,
+            "MaxY": 100.0,
+            "Precision": "1",
+            "LastIndex": 99,
+            "XAxisScale": 1.0,
+            "InsertRandomValues": true,
+            "LabelSizeTop": 10,
+            "LabelSizeBottom": 10,
+            "LabelSizeLeft": 30,
+            "LabelSizeRight": 10,
+            "GraphType": "GraphScroll",
+            "GraphDrawers": [
+              {
+                "Type": "LineDrawer",
+                "LineWidth": 2,
+                "Color": {
+                  "Red": 22,
+                  "Green": 196,
+                  "Blue": 30
+                }
+              },
+              {
+                "Type": "LineDrawer",
+                "LineWidth": 2,
+                "Color": {
+                  "Red": 196,
+                  "Green": 22,
+                  "Blue": 33
+                }
+              }
+            ],
+            "XAxisGrid": {
+              "Type": "GraphGrid",
+              "Color": {
+                "Red": 173,
+                "Green": 173,
+                "Blue": 173
+              },
+              "Interval": 11.0,
+              "LineWidth": 1
+            },
+            "YAxisGrid": {
+              "Type": "GraphGrid",
+              "Color": {
+                "Red": 173,
+                "Green": 173,
+                "Blue": 173
+              },
+              "Interval": 10.0,
+              "LineWidth": 1
+            },
+            "YAxisLabel": {
+              "Type": "GraphLabel",
+              "Interval": 10.0,
+              "DecimalSeparator": "Comma",
+              "TextColor": {
+                "Red": 214,
+                "Green": 15,
+                "Blue": 15
+              },
+              "TextId": "__SingleUse_T9Z7",
+              "TextRotation": "0",
+              "Position": "Left"
+            }
+          }
+        ],
+        "Interactions": [
+          {
+            "InteractionName": "Interaction1",
+            "Trigger": {
+              "Type": "TriggerClicked"
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionWipe",
+              "ScreenTransitionDirection": "East"
+            }
+          },
+          {
+            "InteractionName": "Interaction2",
+            "Trigger": {
+              "Type": "TriggerNone"
+            },
+            "Action": {
+              "Type": "ActionNone"
+            }
+          }
+        ]
+      }
+    ],
+    "CustomContainerDefinitions": [],
+    "Name": "MyApplication",
+    "Resolution": {
+      "Width": 480,
+      "Height": 272
+    },
+    "SelectedColorDepth": 16,
+    "StartupScreenName": "Screen1",
+    "SelectedStartupLanguage": "GB",
+    "Skin": "Blue",
+    "TouchGfxPath": "../Middlewares/ST/touchgfx",
+    "UIPath": ".",
+    "AvailableColorDepths": [
+      16
+    ],
+    "AvailableLCDs": {
+      "16": "LCD16bpp"
+    },
+    "AvailableSections": [
+      "ExtFlashSection",
+      "IntFlashSection"
+    ],
+    "AvailableResolutions": [
+      {
+        "Width": 480,
+        "Height": 272
+      }
+    ],
+    "PhysicalButtons": [],
+    "FrameworkFeatures": {
+      "LCD16bpp": {
+        "Id": "LCD16bpp",
+        "IsEnabled": true
+      }
+    },
+    "GenerateAssetsCommand": "make -f simulator/gcc/Makefile assets -j8",
+    "PostGenerateCommand": "touchgfx update_project --project-file=simulator/msvs/Application.vcxproj",
+    "PostGenerateTargetCommand": "touchgfx update_project",
+    "CompileSimulatorCommand": "make -f simulator/gcc/Makefile -j8",
+    "RunSimulatorCommand": "build\\bin\\simulator.exe",
+    "CompileTargetCommand": "make -f ../gcc/Makefile -j8",
+    "FlashTargetCommand": "make -f ../gcc/Makefile flash -j8",
+    "LandscapeSkinX": 0,
+    "LandscapeSkinY": 0,
+    "PortraitSkinX": 0,
+    "PortraitSkinY": 0,
+    "DisplayOrientation": "Landscape",
+    "Family": "STM32F7",
+    "Platform": "m7",
+    "ProjectFile": "../STM32F746G_DISCO.ioc",
+    "OptionalComponentsRoot": "../Middlewares/ST/touchgfx_components",
+    "OptionalComponents": []
+  },
+  "Version": "4.20.0",
+  "CreatedBy": "4.20.0"
+}

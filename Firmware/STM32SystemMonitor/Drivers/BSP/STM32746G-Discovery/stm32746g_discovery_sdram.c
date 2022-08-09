@@ -2,8 +2,6 @@
   ******************************************************************************
   * @file    stm32746g_discovery_sdram.c
   * @author  MCD Application Team
-  * @version V1.1.0
-  * @date    22-April-2016
   * @brief   This file includes the SDRAM driver for the MT48LC4M32B2B5-7 memory 
   *          device mounted on STM32746G-Discovery board.
   @verbatim
@@ -74,6 +72,15 @@
   *
   ******************************************************************************
   */
+
+/* Dependencies
+- stm32f7xx_hal_sdram.c
+- stm32f7xx_ll_fmc.c
+- stm32f7xx_hal_dma.c  
+- stm32f7xx_hal_gpio.c
+- stm32f7xx_hal_cortex.c
+- stm32f7xx_hal_rcc_ex.h
+EndDependencies */
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32746g_discovery_sdram.h"

@@ -2,8 +2,6 @@
   ******************************************************************************
   * @file    ft5336.c
   * @author  MCD Application Team
-  * @version V1.0.0
-  * @date    25-June-2015
   * @brief   This file provides a set of functions needed to manage the FT5336
   *          touch screen devices.
   ******************************************************************************
@@ -148,7 +146,7 @@ void ft5336_Init(uint16_t DeviceAddr)
 {
   /* Wait at least 200ms after power up before accessing registers
    * Trsi timing (Time of starting to report point after resetting) from FT5336GQQ datasheet */
-  TS_IO_Delay(200);
+  //TS_IO_Delay(200);
 
   /* Initialize I2C link if needed */
   ft5336_I2C_InitializeIfRequired();
@@ -582,7 +580,7 @@ static void ft5336_I2C_InitializeIfRequired(void)
   if(ft5336_Get_I2C_InitializedStatus() == FT5336_I2C_NOT_INITIALIZED)
   {
     /* Initialize TS IO BUS layer (I2C) */
-    TS_IO_Init();
+    //TS_IO_Init();
 
     /* Set state to initialized */
     ft5336_handle.i2cInitialized = FT5336_I2C_INITIALIZED;

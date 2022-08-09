@@ -2,8 +2,6 @@
   ******************************************************************************
   * @file    ft5336.h
   * @author  MCD Application Team
-  * @version V1.0.0
-  * @date    25-June-2015
   * @brief   This file contains all the functions prototypes for the
   *          ft5336.c Touch screen driver.
   ******************************************************************************
@@ -46,7 +44,7 @@ extern "C" {
 
 /* Set Multi-touch as supported */
 #if !defined(TS_MONO_TOUCH_SUPPORTED)
-#define TS_MULTI_TOUCH_SUPPORTED        1
+#define TS_MULTI_TOUCH_SUPPORTED        0
 #endif /* TS_MONO_TOUCH_SUPPORTED */
 
 /* Includes ------------------------------------------------------------------*/

@@ -2,8 +2,6 @@
   ******************************************************************************
   * @file    stm32746g_discovery_audio.c
   * @author  MCD Application Team
-  * @version V1.1.0
-  * @date    22-April-2016
   * @brief   This file provides the Audio driver for the STM32746G-Discovery board.
   @verbatim
     How To use this driver:
@@ -91,6 +89,16 @@
   *
   ******************************************************************************
   */
+
+/* Dependencies
+- stm32746g_discovery.c
+- stm32f7xx_hal_sai.c
+- stm32f7xx_hal_dma.c
+- stm32f7xx_hal_gpio.c
+- stm32f7xx_hal_cortex.c
+- stm32f7xx_hal_rcc_ex.h
+- wm8994.c
+EndDependencies */
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32746g_discovery_audio.h"
@@ -777,15 +785,28 @@ static void SAIx_Out_DeInit(void)
 /** @defgroup STM32746G_DISCOVERY_AUDIO_Out_Private_Functions STM32746G_DISCOVERY_AUDIO Out Private Functions
   * @{
   */ 
-  
+
+/**
+  * @brief  Initializes wave recording.
+  * @param  AudioFreq: Audio frequency to be configured for the SAI peripheral.
+  * @param  BitRes: Audio frequency to be configured.
+  * @param  ChnlNbr: Channel number.
+  * @retval AUDIO_OK if correct communication, else wrong communication
+  */
+uint8_t BSP_AUDIO_IN_Init(uint32_t AudioFreq, uint32_t BitRes, uint32_t ChnlNbr)
+{
+  return BSP_AUDIO_IN_InitEx(INPUT_DEVICE_DIGITAL_MICROPHONE_2, AudioFreq, BitRes, ChnlNbr); 
+}
+
 /**
   * @brief  Initializes wave recording.
   * @param  InputDevice: INPUT_DEVICE_DIGITAL_MICROPHONE_2 or INPUT_DEVICE_INPUT_LINE_1
-  * @param  Volume: Initial volume level (in range 0(Mute)..80(+0dB)..100(+17.625dB))
   * @param  AudioFreq: Audio frequency to be configured for the SAI peripheral.
+  * @param  BitRes: Audio frequency to be configured.
+  * @param  ChnlNbr: Channel number.
   * @retval AUDIO_OK if correct communication, else wrong communication
   */
-uint8_t BSP_AUDIO_IN_Init(uint16_t InputDevice, uint8_t Volume, uint32_t AudioFreq)
+uint8_t BSP_AUDIO_IN_InitEx(uint16_t InputDevice, uint32_t AudioFreq, uint32_t BitRes, uint32_t ChnlNbr)
 {
   uint8_t ret = AUDIO_ERROR;
   uint32_t deviceid = 0x00;
@@ -847,7 +868,7 @@ uint8_t BSP_AUDIO_IN_Init(uint16_t InputDevice, uint8_t Volume, uint32_t AudioFr
     if(ret == AUDIO_OK)
     {
       /* Initialize the codec internal registers */
-      audio_drv->Init(AUDIO_I2C_ADDRESS, InputDevice, Volume, AudioFreq);
+      audio_drv->Init(AUDIO_I2C_ADDRESS, InputDevice, 100, AudioFreq);
     }
   }
   return ret;
@@ -858,11 +879,12 @@ uint8_t BSP_AUDIO_IN_Init(uint16_t InputDevice, uint8_t Volume, uint32_t AudioFr
   * @param  InputDevice: INPUT_DEVICE_DIGITAL_MICROPHONE_2
   * @param  OutputDevice: OUTPUT_DEVICE_SPEAKER, OUTPUT_DEVICE_HEADPHONE,
   *                       or OUTPUT_DEVICE_BOTH.
-  * @param  Volume: Initial volume level (in range 0(Mute)..80(+0dB)..100(+17.625dB))
   * @param  AudioFreq: Audio frequency to be configured for the SAI peripheral.
+  * @param  BitRes: Audio frequency to be configured.
+  * @param  ChnlNbr: Channel number.
   * @retval AUDIO_OK if correct communication, else wrong communication
   */
-uint8_t BSP_AUDIO_IN_OUT_Init(uint16_t InputDevice, uint16_t OutputDevice, uint8_t Volume, uint32_t AudioFreq)
+uint8_t BSP_AUDIO_IN_OUT_Init(uint16_t InputDevice, uint16_t OutputDevice, uint32_t AudioFreq, uint32_t BitRes, uint32_t ChnlNbr)
 {
   uint8_t ret = AUDIO_ERROR;
   uint32_t deviceid = 0x00;
@@ -932,7 +954,7 @@ uint8_t BSP_AUDIO_IN_OUT_Init(uint16_t InputDevice, uint16_t OutputDevice, uint8
     if(ret == AUDIO_OK)
     {
       /* Initialize the codec internal registers */
-      audio_drv->Init(AUDIO_I2C_ADDRESS, InputDevice | OutputDevice, Volume, AudioFreq);
+      audio_drv->Init(AUDIO_I2C_ADDRESS, InputDevice | OutputDevice, 100, AudioFreq);
     }
   }
   return ret;

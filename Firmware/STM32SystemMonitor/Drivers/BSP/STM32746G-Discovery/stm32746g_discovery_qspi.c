@@ -2,8 +2,6 @@
   ******************************************************************************
   * @file    stm32746g_discovery_qspi.c
   * @author  MCD Application Team
-  * @version V1.1.0
-  * @date    22-April-2016
   * @brief   This file includes a standard driver for the N25Q128A QSPI
   *          memory mounted on STM32746G-Discovery board.
   @verbatim
@@ -63,6 +61,14 @@
   *
   ******************************************************************************
   */ 
+
+/* Dependencies
+- stm32f7xx_hal_qspi.c
+- stm32f7xx_hal_gpio.c
+- stm32f7xx_hal_cortex.c
+- stm32f7xx_hal_rcc_ex.h
+- n25q128a.h
+EndDependencies */
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32746g_discovery_qspi.h"
@@ -133,7 +139,7 @@ uint8_t BSP_QSPI_Init(void)
   QSPIHandle.Init.FifoThreshold      = 4;
   QSPIHandle.Init.SampleShifting     = QSPI_SAMPLE_SHIFTING_HALFCYCLE;
   QSPIHandle.Init.FlashSize          = POSITION_VAL(N25Q128A_FLASH_SIZE) - 1;
-  QSPIHandle.Init.ChipSelectHighTime = QSPI_CS_HIGH_TIME_2_CYCLE;
+  QSPIHandle.Init.ChipSelectHighTime = QSPI_CS_HIGH_TIME_6_CYCLE; /* Min 50ns for nonRead */
   QSPIHandle.Init.ClockMode          = QSPI_CLOCK_MODE_0;
   QSPIHandle.Init.FlashID            = QSPI_FLASH_ID_1;
   QSPIHandle.Init.DualFlash          = QSPI_DUALFLASH_DISABLE;
@@ -209,11 +215,17 @@ uint8_t BSP_QSPI_Read(uint8_t* pData, uint32_t ReadAddr, uint32_t Size)
     return QSPI_ERROR;
   }
   
+  /* Set S# timing for Read command */
+  MODIFY_REG(QSPIHandle.Instance->DCR, QUADSPI_DCR_CSHT, QSPI_CS_HIGH_TIME_3_CYCLE);
+  
   /* Reception of the data */
   if (HAL_QSPI_Receive(&QSPIHandle, pData, HAL_QPSI_TIMEOUT_DEFAULT_VALUE) != HAL_OK)
   {
     return QSPI_ERROR;
   }
+  
+  /* Restore S# timing for nonRead commands */
+  MODIFY_REG(QSPIHandle.Instance->DCR, QUADSPI_DCR_CSHT, QSPI_CS_HIGH_TIME_6_CYCLE);
 
   return QSPI_OK;
 }
@@ -231,13 +243,7 @@ uint8_t BSP_QSPI_Write(uint8_t* pData, uint32_t WriteAddr, uint32_t Size)
   uint32_t end_addr, current_size, current_addr;
 
   /* Calculation of the size between the write address and the end of the page */
-  current_addr = 0;
-
-  while (current_addr <= WriteAddr)
-  {
-    current_addr += N25Q128A_PAGE_SIZE;
-  }
-  current_size = current_addr - WriteAddr;
+  current_size = N25Q128A_PAGE_SIZE - (WriteAddr % N25Q128A_PAGE_SIZE);
 
   /* Check if the size of the data is less than the remaining place in the page */
   if (current_size > Size)

@@ -14,6 +14,9 @@
 
 
 
+
+
+
   
   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
@@ -112,14 +115,480 @@ Notes for STM32746G-Discovery BSP Driver</span><span style="font-size: 20pt; fon
       <table class="MsoNormalTable" style="width: 675pt;" border="0" cellpadding="0" width="900">
         <tbody>
           <tr style="">
-            <td style="padding: 0cm;" valign="top">
-            <span style="font-family: &quot;Times New Roman&quot;;">
-            </span>
-            <h2 style="background: rgb(51, 102, 255) none repeat scroll 0% 50%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;"><a name="History"></a><span style="font-size: 12pt; color: white;">Update History</span></h2>
+            <td style="padding: 0cm;" valign="top"><span style="font-family: &quot;Times New Roman&quot;;"></span><p class="MsoListParagraph" style="text-align: left;"><span style="font-size: 11pt; font-family: &quot;Arial&quot;,sans-serif;">The BSP (Board Specific
+Package) drivers are parts of the STM32Cube package based on the HAL
+drivers and provide a set of high level APIs relative to the hardware
+components and features in the evaluation boards, discovery kits and nucleo
+boards coming with the STM32Cube package for a given STM32 serie.</span></p>
+            <p class="MsoListParagraph" style="text-align: left;"><span style="font-size: 11pt; font-family: &quot;Arial&quot;,sans-serif;">The BSP drivers allow a quick access to the boards&#8217;
+services using high level APIs and without any specific configuration as the
+link with the HAL and the external components is done in intrinsic within the drivers. <br>
+            </span></p>
+            <p class="MsoListParagraph" style="text-align: left;"><span style="font-size: 11pt; font-family: &quot;Arial&quot;,sans-serif;">From project settings points of view, user has only
+to add the necessary driver&#8217;s files in the workspace and call the needed
+functions from examples. However some low level
+configuration functions are weak and can be overridden by the applications if user
+wants to change some BSP drivers default behavior.</span></p>
+
+
+            <h2 style="background: rgb(51, 102, 255) none repeat scroll 0% 50%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;"><span style="font-size: 12pt; color: white;">&nbsp;&nbsp;&nbsp; Update History</span></h2>
+<span style="font-size: 10pt; font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;;"></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-style: italic; font-weight: bold;"></span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-style: italic; font-weight: bold;"></span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-style: italic; font-weight: bold;"></span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-style: italic; font-weight: bold;"></span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-style: italic; font-weight: bold;"></span></span><h3 style="background: rgb(51, 102, 255) none repeat scroll 0% 50%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; margin-right: 500pt; width: 180px;"><span style="font-size: 10pt; font-family: Arial; color: white;">V2.0.3 / 12-February-2021 <o:p></o:p></span></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             
             
             
-            <h3 style="background: rgb(51, 102, 255) none repeat scroll 0% 50%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; margin-right: 500pt; width: 180px;"><span style="font-size: 10pt; font-family: Arial; color: white;">V1.1.0 / 22-April-2016 <o:p></o:p></span></h3>
+            
+            
+            
+            
+            
+            
+            
+            
+            <p class="MsoNormal" style="margin: 4.5pt 0cm 4.5pt 18pt;"><b style=""><u><span style="font-size: 10pt; font-family: Verdana; color: black;">Main
+Changes<o:p></o:p></span></u></b></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <span style="font-size: 10pt; font-family: Verdana;"></span>
+
+
+            
+            <span style="font-size: 10pt; font-family: Verdana;"></span>
+
+
+            
+            <span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;"></span>
+
+
+
+
+
+
+            
+            
+            <span style="font-size: 10pt; font-family: Verdana;"></span>
+
+
+
+
+
+
+            
+            
+            <span style="font-size: 10pt; font-family: Verdana;"></span>
+
+
+
+
+
+            
+            
+            <span style="font-size: 10pt; font-family: Verdana;"></span>
+
+
+
+
+            
+            
+            <span style="font-size: 10pt; font-family: Verdana;"></span>
+
+            <span style="font-size: 10pt; font-family: Verdana;"></span>
+            
+            
+            <ul style="list-style-type: square;"><li><span style="font-size: 10pt; font-family: Verdana;">stm32746g_discovery_lcd.c:</span></li><ul><li><span style="font-size: 10pt; font-family: Verdana;">Remove GPIO PIN 13 (LCD VSYNC) configuration from BSP_LCD_MspInit() API to avoid conflict with stm32746g_discovery_ts.c driver.<br></span></li></ul></ul><h3 style="background: rgb(51, 102, 255) none repeat scroll 0% 50%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; margin-right: 500pt; width: 180px;"><span style="font-size: 10pt; font-family: Arial; color: white;">V2.0.2 / 24-August-2017 <o:p></o:p></span></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <p class="MsoNormal" style="margin: 4.5pt 0cm 4.5pt 18pt;"><b style=""><u><span style="font-size: 10pt; font-family: Verdana; color: black;">Main
+Changes<o:p></o:p></span></u></b></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <span style="font-size: 10pt; font-family: Verdana;"></span>
+
+
+            
+            <span style="font-size: 10pt; font-family: Verdana;"></span>
+
+
+            
+            <span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;"></span>
+
+
+
+
+
+
+            
+            
+            <span style="font-size: 10pt; font-family: Verdana;"></span>
+
+
+
+
+
+
+            
+            
+            <span style="font-size: 10pt; font-family: Verdana;"></span>
+
+
+
+
+
+            
+            
+            <span style="font-size: 10pt; font-family: Verdana;"></span>
+
+
+
+
+            
+            
+            <span style="font-size: 10pt; font-family: Verdana;"></span>
+
+            <span style="font-size: 10pt; font-family: Verdana;"></span>
+            
+            
+            <ul style="list-style-type: square;"><li><span style="font-size: 10pt; font-family: Verdana;">stm32746g_discovery_lcd.c:</span></li><ul><li><span style="font-size: 10pt; font-family: Verdana;">Fix compilation errors with SW4STM32 toolchain</span>.</li></ul><li><span style="font-size: 10pt; font-family: Verdana;">stm32746g_discovery</span><span style="font-size: 10pt; font-family: Verdana;">.c:</span></li><ul><li><span style="font-size: 10pt; font-family: Verdana;">Upgrade version to v2.0.2</span></li></ul></ul><h3 style="background: rgb(51, 102, 255) none repeat scroll 0% 50%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; margin-right: 500pt; width: 180px;"><span style="font-size: 10pt; font-family: Arial; color: white;">V2.0.1 / 26-May-2017 <o:p></o:p></span></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <p class="MsoNormal" style="margin: 4.5pt 0cm 4.5pt 18pt;"><b style=""><u><span style="font-size: 10pt; font-family: Verdana; color: black;">Main
+Changes<o:p></o:p></span></u></b></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <span style="font-size: 10pt; font-family: Verdana;"></span>
+
+
+            
+            <span style="font-size: 10pt; font-family: Verdana;"></span>
+
+
+            
+            <span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;"></span>
+
+
+
+
+
+
+            
+            
+            <span style="font-size: 10pt; font-family: Verdana;"></span>
+
+
+
+
+
+
+            
+            
+            <span style="font-size: 10pt; font-family: Verdana;"></span>
+
+
+
+
+
+            
+            
+            <span style="font-size: 10pt; font-family: Verdana;"></span>
+
+
+
+
+            
+            
+            <span style="font-size: 10pt; font-family: Verdana;"></span>
+
+            <span style="font-size: 10pt; font-family: Verdana;"></span>
+            
+            
+            <ul style="list-style-type: square;"><li><span style="font-size: 10pt; font-family: Verdana;">Add general description of BSP drivers<br>
+</span></li><li><span style="font-size: 10pt; font-family: Verdana;">Add Dependencies section<br>
+</span></li><li><span style="font-size: 10pt; font-family: Verdana;">Support of PDSC</span></li></ul>
+            
+            
+            
+            <h3 style="background: rgb(51, 102, 255) none repeat scroll 0% 50%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; margin-right: 500pt; width: 247px;"><span style="font-size: 10pt; font-family: Arial; color: white;">V2.0.0 / 30-December-2016</span></h3>
+            
+            <p class="MsoNormal" style="margin: 4.5pt 0cm 4.5pt 18pt;"><b style=""><u><span style="font-size: 10pt; font-family: Verdana; color: black;">Main
+Changes<o:p></o:p></span></u></b></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <span style="font-size: 10pt; font-family: Verdana;"></span>
+
+
+            
+            <span style="font-size: 10pt; font-family: Verdana;"></span>
+
+
+            
+            <span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;"></span>
+
+
+
+
+
+
+            
+            
+            <span style="font-size: 10pt; font-family: Verdana;"></span>
+
+
+
+
+
+
+            
+            
+            <span style="font-size: 10pt; font-family: Verdana;"></span>
+
+
+
+
+
+            
+            
+            <span style="font-size: 10pt; font-family: Verdana;"></span>
+
+
+
+
+            
+            
+            <span style="font-size: 10pt; font-family: Verdana;"></span>
+
+            <span style="font-size: 10pt; font-family: Verdana;"></span>
+            
+            
+            <ul style="list-style-type: square;">
+<li><span style="font-size: 10pt; font-family: Verdana;">stm32f746g_discovery_sd.c/.h:</span></li><ul><li><span style="font-size: 10pt; font-family: Verdana;">Update BSP SD APIs </span><span style="font-family: Verdana; font-size: 10pt;">following new HAL SD drivers implementation</span></li><li><span style="font-size: 10pt; font-family: Verdana;">Fix BlockSize to 512 bytes<br>
+</span></li></ul><li><span style="font-size: 10pt; font-family: Verdana;">stm32f746g_discovery</span><span style="font-size: 10pt; font-family: Verdana;">_audio.c/.h:</span></li><ul><li><span style="font-size: 10pt; font-family: Verdana;">Update BSP_AUDIO_IN_Init parameters</span><br>
+</li></ul><li><span style="font-size: 10pt; font-family: Verdana;">stm32f746g_discovery</span><span style="font-size: 10pt; font-family: Verdana;">_lcd.c/.h:</span></li><ul><li><span style="font-size: 10pt; font-family: Verdana;">Update BSP_LCD_ReadPixel to read correctely ARGB8888 and RGB888 pixels</span></li></ul><li><span style="font-size: 10pt; font-family: Verdana;">stm32f746g_discovery</span><span style="font-size: 10pt; font-family: Verdana;">_qspi.c/.h:</span></li><ul><li><span style="font-size: 10pt; font-family: Verdana;">QSPI write operation improvement</span></li><li><span style="font-size: 10pt; font-family: Verdana;">Update CS High Time</span></li></ul>
+            </ul>
+<ul style="list-style-type: square;"><li><span style="font-family: Verdana; font-size: 10pt;"><span style="font-style: italic; font-weight: bold; text-decoration: underline;">Notes:</span> <br>
+  </span></li>
+              <ul>
+                <li><span style="font-family: Verdana; font-size: 10pt;">These</span><span style="font-family: Verdana; font-size: 10pt;"> BSP drivers</span><span style="font-family: Verdana; font-size: 10pt;"> break the compatibility with previous versions.</span></li>
+              </ul>
+              <ul>
+                <li><span style="font-family: Verdana; font-size: 10pt;">If FatFs is required, </span><span style="font-family: Verdana; font-size: 10pt; font-style: italic;">"FatFS R0.11<span class="Apple-converted-space"> </span> </span><span style="font-family: Verdana; font-size: 10pt;"><span style="font-style: italic;">ST modified 20161223"</span><span style="color: red;"><span style="color: black;"></span></span></span><span style="font-family: Verdana; font-size: 10pt;"> must be used with </span><span style="font-family: Verdana; font-size: 10pt;">this version of BSP drivers.</span></li>
+              </ul>
+
+            </ul>
+            <h3 style="background: rgb(51, 102, 255) none repeat scroll 0% 50%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; margin-right: 500pt; width: 180px;"><span style="font-size: 10pt; font-family: Arial; color: white;">V1.1.1 / 02-June-2016 <o:p></o:p></span></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+            
+            
+            
+            
+            
+            <p class="MsoNormal" style="margin: 4.5pt 0cm 4.5pt 18pt;"><b style=""><u><span style="font-size: 10pt; font-family: Verdana; color: black;">Main
+Changes<o:p></o:p></span></u></b></p>
+
+
+
+
+
+
+
+
+
+            <span style="font-size: 10pt; font-family: Verdana;"></span>
+
+
+            
+            <span style="font-size: 10pt; font-family: Verdana;"></span>
+
+
+            
+            <span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;"></span>
+
+
+
+
+
+
+            
+            
+            <span style="font-size: 10pt; font-family: Verdana;"></span>
+
+
+
+
+
+
+            
+            
+            <span style="font-size: 10pt; font-family: Verdana;"></span>
+
+
+
+
+
+            
+            
+            <span style="font-size: 10pt; font-family: Verdana;"></span>
+
+
+
+
+            
+            
+            <span style="font-size: 10pt; font-family: Verdana;"></span>
+
+            <span style="font-size: 10pt; font-family: Verdana;"></span>
+
+            <span style="font-size: 10pt; font-family: Verdana;"></span>
+
+
+
+
+            
+            
+            <ul style="list-style-type: square;"><li><span style="font-size: 10pt; font-family: Verdana;">Update typos in drivers comments</span><span style="font-size: 10pt; font-family: Verdana;">.</span></li></ul><span style="font-size: 10pt; font-family: Verdana;"><span style="font-style: italic; font-weight: bold;"></span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-style: italic; font-weight: bold;"></span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-style: italic; font-weight: bold;"></span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-style: italic; font-weight: bold;"></span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-style: italic; font-weight: bold;"></span></span><span style="font-size: 10pt; font-family: Verdana;"></span><h3 style="background: rgb(51, 102, 255) none repeat scroll 0% 50%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; margin-right: 500pt; width: 180px;"><span style="font-size: 10pt; font-family: Arial; color: white;">V1.1.0 / 22-April-2016 <o:p></o:p></span></h3>
 
 
 
@@ -279,8 +748,16 @@ Changes<o:p></o:p></span></u></b></p>
             <ul style="list-style-type: square;">
 <li><span style="font-family: Verdana; font-size: 10pt;">First official release 
 of the <span style="font-weight: bold;">STM32746G-DISCO</span> board BSP 
-drivers</span><span style="font-family: Verdana; font-size: 10pt;"></span> </li>
-            </ul><span style="font-size: 10pt; font-family: Verdana;"><span style="font-style: italic; font-weight: bold;"></span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-style: italic; font-weight: bold;"></span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-style: italic; font-weight: bold;"></span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-style: italic; font-weight: bold;"></span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-style: italic; font-weight: bold;"></span></span><span style="font-size: 10pt; font-family: Verdana;"></span><h2 style="background: rgb(51, 102, 255) none repeat scroll 0% 50%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;"><a name="License"></a><span style="font-size: 12pt; color: white;">License<o:p></o:p></span><br></h2>
+drivers</span></li>
+            </ul><h3 style="background: rgb(51, 102, 255) none repeat scroll 0% 50%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; margin-right: 500pt; width: 180px; color: white;"><b style=""><span style="font-size: 10pt; font-family: Verdana;">Dependencies</span></b></h3>
+
+
+
+            
+            
+            
+            <ul style="margin-top: 0cm;" type="square"><li class="MsoNormal"><span style="font-size: 10pt; font-family: Verdana;">STM32F7xx_HAL_Driver V1.2.0<br>
+</span></li><li class="MsoNormal"><span style="font-size: 10pt; font-family: Verdana;">BSP Common V4.0.1</span></li></ul><span style="font-size: 10pt; font-family: Verdana;"><span style="font-style: italic; font-weight: bold;"></span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-style: italic; font-weight: bold;"></span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-style: italic; font-weight: bold;"></span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-style: italic; font-weight: bold;"></span></span><span style="font-size: 10pt; font-family: Verdana;"><span style="font-style: italic; font-weight: bold;"></span></span><span style="font-size: 10pt; font-family: Verdana;"></span><h2 style="background: rgb(51, 102, 255) none repeat scroll 0% 50%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;"><a name="License"></a><span style="font-size: 12pt; color: white;">License<o:p></o:p></span><br></h2>
             <div style="text-align: justify;"><font size="-1"><span style="font-family: &quot;Verdana&quot;,&quot;sans-serif&quot;;">
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are
@@ -306,7 +783,7 @@ complete documentation on </span><span style="font-size: 10pt; font-family: Verd
 visit </span><u><span style="color: blue;"><a href="http://www.st.com/internet/mcu/class/1734.jsp" target="_blank">www.st.com/STM32</a></span></u></span><span style="font-size: 10pt; font-family: Verdana;"><a target="_blank" href="http://www.st.com/internet/mcu/family/141.jsp"><u><span style="color: blue;"></span></u></a></span><span style="font-size: 10pt; font-family: Verdana;"><u><span style="color: blue;"></span></u></span><span style="color: black;"><o:p></o:p></span></p>
             </td>
           </tr>
-        </tbody>
+        <tr><td style="padding: 0cm;" valign="top"></td></tr></tbody>
       </table>
       <p class="MsoNormal"><span style="font-size: 10pt;"><o:p></o:p></span></p>
       </td>

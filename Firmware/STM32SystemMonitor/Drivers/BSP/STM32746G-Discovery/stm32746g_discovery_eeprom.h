@@ -2,8 +2,6 @@
   ******************************************************************************
   * @file    stm32746g_discovery_eeprom.h
   * @author  MCD Application Team
-  * @version V1.1.0
-  * @date    22-April-2016
   * @brief   This file contains all the functions prototypes for 
   *          the stm32746g_discovery_eeprom.c firmware driver.
   ******************************************************************************
