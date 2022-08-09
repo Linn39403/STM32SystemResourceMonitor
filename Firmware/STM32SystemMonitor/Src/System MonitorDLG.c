@@ -44,6 +44,7 @@ extern struct systemInfo_s SystemInfo;
 #define ID_TEXT_1    (GUI_ID_USER + 0x09) //RYZEN Temp Text
 #define ID_TEXT_2    (GUI_ID_USER + 0x0A)
 #define ID_TEXT_3    (GUI_ID_USER + 0x0B)
+#define ID_PROGBAR_RAM (GUI_ID_USER + 0x0C)
 
 #define ID_IMAGE_0_IMAGE_0   0x00
 #define ID_IMAGE_1_IMAGE_0   0x01
@@ -55,9 +56,10 @@ struct gui_handle_s
 	TEXT_Handle RyzenTempTxtHandle;
 	TEXT_Handle NvidiaTempTxtHandle;
 	TEXT_Handle RAMUsageTxtHandle;
+	PROGBAR_Handle RAMUsageProgHandle;
 }GUIHandle;
 // USER END
-
+PROGBAR_SKINFLEX_PROPS RAMUsagProgBarSkinFlex;
 /*********************************************************************
 *
 *       Static data
@@ -131,6 +133,11 @@ void CreateSystemMonitor(void)
 	TEXT_SetFont(GUIHandle.RAMUsageTxtHandle, GUI_FONT_8X16);
 	TEXT_SetBkColor(GUIHandle.RAMUsageTxtHandle, GUI_BLACK);
 	TEXT_SetTextColor(GUIHandle.RAMUsageTxtHandle, GUI_CYAN); 
+	
+	//Add Progbar for RAM Usage ( Dynamice )
+	GUIHandle.RAMUsageProgHandle = PROGBAR_CreateEx((LCD_SIZE_X/2)+60 , LCD_SIZE_Y - 25, 140, 16, 0, WM_CF_SHOW, PROGBAR_CF_HORIZONTAL, ID_PROGBAR_RAM);
+	PROGBAR_SetMinMax(GUIHandle.RAMUsageProgHandle, 0, 100);
+	PROGBAR_GetSkinFlexProps(&RAMUsagProgBarSkinFlex, PROGBAR_SKINFLEX_L);
 }
 /*************************** End of file ****************************/
 
@@ -145,5 +152,16 @@ void CPUTempUpdate(struct systemInfo_s * Info)
 	TEXT_SetText(GUIHandle.RyzenTempTxtHandle, (const char*)Info->CPUTemp);
 	TEXT_SetText(GUIHandle.NvidiaTempTxtHandle, (const char*)Info->GPUTemp);
 	TEXT_SetText(GUIHandle.RAMUsageTxtHandle, (const char*)Info->RAMUsage);
+	
+	int RAMUsage = (int)((Info->f_RAMUsed / 16.0f)*100);
+	if( RAMUsage > 70 )
+	{
+		PROGBAR_SetBarColor(GUIHandle.RAMUsageProgHandle, 0, GUI_GREEN);
+	}
+	else
+	{
+		PROGBAR_SetBarColor(GUIHandle.RAMUsageProgHandle, 0, GUI_RED);
+	}
+	PROGBAR_SetValue(GUIHandle.RAMUsageProgHandle, RAMUsage);
 }
 /*************************** End of file ****************************/

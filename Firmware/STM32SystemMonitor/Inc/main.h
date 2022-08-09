@@ -62,6 +62,7 @@ struct systemInfo_s
 	char CPUTemp[16];
 	char GPUTemp[16];
 	char RAMUsage[16];
+	float f_RAMUsed;
 };
 /* Exported constants --------------------------------------------------------*/
 /* Definition for USARTx clock resources */

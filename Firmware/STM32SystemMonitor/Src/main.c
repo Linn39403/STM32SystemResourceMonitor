@@ -202,6 +202,7 @@ void TranslateToCPUTemperature(RingBuffer  *inputRingBuff)
 		{
 			SystemInfo.RAMUsage[resultCnt++] = *found;
 		}	
+		SystemInfo.f_RAMUsed = atof(SystemInfo.RAMUsage);
 		SystemInfo.RAMUsage[resultCnt++] = ' '; SystemInfo.RAMUsage[resultCnt++] = 'G'; SystemInfo.RAMUsage[resultCnt++] = 'B'; 
 	}
 }
