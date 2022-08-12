@@ -628,7 +628,7 @@
             <File>
               <FileName>STemWin528_CM7_Keil.lib</FileName>
               <FileType>4</FileType>
-              <FilePath>..\Drivers\STemWin\Lib\STemWin528_CM7_Keil.lib</FilePath>
+              <FilePath>..\Middlewares\STemWin\Lib\STemWin528_CM7_Keil.lib</FilePath>
             </File>
           </Files>
         </Group>
@@ -1297,7 +1297,7 @@
             <File>
               <FileName>STemWin528_CM7_Keil.lib</FileName>
               <FileType>4</FileType>
-              <FilePath>..\Drivers\STemWin\Lib\STemWin528_CM7_Keil.lib</FilePath>
+              <FilePath>..\Middlewares\STemWin\Lib\STemWin528_CM7_Keil.lib</FilePath>
             </File>
           </Files>
         </Group>

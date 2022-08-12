@@ -39,7 +39,7 @@
 "stm32746g-discovery_usbd-hs\wm8994.o"
 "stm32746g-discovery_usbd-hs\stm32746g_discovery_sdram.o"
 "stm32746g-discovery_usbd-hs\stm32746g_discovery_lcd.o"
-"..\Drivers\STemWin\Lib\STemWin528_CM7_Keil.lib"
+"..\Middlewares\STemWin\Lib\STemWin528_CM7_Keil.lib"
 "stm32746g-discovery_usbd-hs\guiconf.o"
 "stm32746g-discovery_usbd-hs\lcdconf.o"
 "stm32746g-discovery_usbd-hs\gui_x.o"
