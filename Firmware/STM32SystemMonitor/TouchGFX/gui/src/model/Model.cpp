@@ -17,4 +17,6 @@ void Model::tick()
 	modelListener->updateCPUUsageProgress(SystemInfo.u16CPUUsage);
 	modelListener->updateGPUUsageProgress(SystemInfo.u16GPUUsage);
 	modelListener->updateSystemTime(SystemInfo.u8SysTimeHr, SystemInfo.u8SysTimeMin, SystemInfo.u8SysTimeSec);
+	modelListener->updateCPUTempGraph(SystemInfo.fCPUTemp);
+	modelListener->updateGPUTempGraph(SystemInfo.fGPUTemp);
 }

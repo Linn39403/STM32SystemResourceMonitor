@@ -34,75 +34,62 @@ namespace HardwareResourceMonitor
             computer.GPUEnabled = true;
             computer.RAMEnabled = true;
             computer.Accept(updateVisitor);
-            string CPUInfoString = "";
             string CPULoadString = "";
-            string GPUInfoString = "";
             string GPULoadString = "";
+            string CPUTempString = "";
+            string GPUTempString = "";
             string RAMInfoString = "";
-            string SystemTimeString = "";
+            string TimeString = "";
             string SystemInfoString = "";
             for (int i = 0; i < computer.Hardware.Length; i++)
             {
                 if (computer.Hardware[i].HardwareType == HardwareType.CPU)
                 {
-                    CPUInfoString = "";
                     for (int j = 0; j < computer.Hardware[i].Sensors.Length; j++)
                     {
                         if (computer.Hardware[i].Sensors[j].SensorType == SensorType.Temperature &&
                             computer.Hardware[i].Sensors[j].Name == "CPU Package")
                         {
-                            CPUInfoString += computer.Hardware[i].Sensors[j].Name + ":" + computer.Hardware[i].Sensors[j].Value.ToString();
-                            // Console.WriteLine(CPUInfoString);
-                            //_serialPort.WriteLine(computer.Hardware[i].Sensors[j].Name + ":" + computer.Hardware[i].Sensors[j].Value.ToString() );
+                            CPUTempString =  "CPUTemp:" + computer.Hardware[i].Sensors[j].Value.ToString() ;
                         }
                         if (computer.Hardware[i].Sensors[j].SensorType == SensorType.Load &&
                             computer.Hardware[i].Sensors[j].Name == "CPU Total")
                         {
-                            CPULoadString += computer.Hardware[i].Sensors[j].Name + ":" + computer.Hardware[i].Sensors[j].Value.ToString();
+                            CPULoadString = "CPULoad:" + computer.Hardware[i].Sensors[j].Value.ToString();
                         }
                     }
                 }
                 if(computer.Hardware[i].HardwareType == HardwareType.GpuNvidia)
                 {
-                    GPUInfoString = "";
                     for (int j = 0; j < computer.Hardware[i].Sensors.Length; j++)
                     {
                         if (computer.Hardware[i].Sensors[j].SensorType == SensorType.Temperature &&
                             computer.Hardware[i].Sensors[j].Name == "GPU Core")
                         {
-                            GPUInfoString += computer.Hardware[i].Sensors[j].Name + ":" + computer.Hardware[i].Sensors[j].Value.ToString();
+                            GPUTempString = "GPUTemp:" + computer.Hardware[i].Sensors[j].Value.ToString();
                         }
                         if (computer.Hardware[i].Sensors[j].SensorType == SensorType.Load &&
-                                computer.Hardware[i].Sensors[j].Name == "GPU Core")
+                            computer.Hardware[i].Sensors[j].Name == "GPU Core")
                         {
-                            GPULoadString += computer.Hardware[i].Sensors[j].Name + ":" + computer.Hardware[i].Sensors[j].Value.ToString();
+                            GPULoadString = "GPULoad:" + computer.Hardware[i].Sensors[j].Value.ToString();
                         }
                     }
                 }
                 if (computer.Hardware[i].HardwareType == HardwareType.RAM)
                 {
-                    RAMInfoString = "";
                     for (int j = 0; j < computer.Hardware[i].Sensors.Length; j++)
                     {
-                        if (computer.Hardware[i].Sensors[j].SensorType == SensorType.Data &&
-                            computer.Hardware[i].Sensors[j].Name == "Used Memory")
-                        {
-                            
-                        }
                         if (computer.Hardware[i].Sensors[j].SensorType == SensorType.Load &&
                             computer.Hardware[i].Sensors[j].Name == "Memory")
                         {
-                            RAMInfoString += computer.Hardware[i].Sensors[j].Name + ":" + computer.Hardware[i].Sensors[j].Value.ToString();
+                            RAMInfoString ="RAM:" + computer.Hardware[i].Sensors[j].Value.ToString();
                         }
                     }
                 }
             }
-
-            //SystemTime 
-            SystemTimeString = "Time:"+DateTime.Now.ToString("h-mm-ss");
-            SystemInfoString = CPULoadString + "," + GPULoadString + "," + RAMInfoString + "," + SystemTimeString;
+            TimeString = "Time:" + DateTime.Now.ToString("h-mm-ss");
+            SystemInfoString = CPUTempString + "," + CPULoadString + "," + GPUTempString + "," + GPULoadString + "," + RAMInfoString + "," + TimeString;
             Console.WriteLine(SystemInfoString);
-
             _serialPort.WriteLine(SystemInfoString);
             computer.Close();
         }

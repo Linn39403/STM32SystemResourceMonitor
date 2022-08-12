@@ -11,7 +11,8 @@ public:
     virtual ~Screen1View() {}
     virtual void setupScreen();
     virtual void tearDownScreen();
-    virtual void updateGraph(uint16_t value);
+    virtual void updateCPUTempGraph(float value);
+    virtual void updateGPUTempGraph(float value);
     virtual void updateRAMUsageProgress(uint16_t value);
     virtual void updateCPUUsageProgress(uint16_t value);
     virtual void updateGPUUsageProgress(uint16_t value);

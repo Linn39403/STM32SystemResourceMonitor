@@ -73,14 +73,11 @@ void Error_Handler(void);
 /* USER CODE BEGIN Private defines */
 struct systemInfo_s
 {
-	char CPUTemp[16];
-	char GPUTemp[16];
-	char RAMUsage[16];
-	char SystemTime[16];
 	uint16_t u16CPUUsage;
 	uint16_t u16GPUUsage;
 	uint16_t u16RAMUsage;
-	uint16_t u16CPUTemp;
+	float fCPUTemp;
+	float fGPUTemp;
 	uint8_t u8SysTimeHr;
 	uint8_t u8SysTimeMin;
 	uint8_t u8SysTimeSec;

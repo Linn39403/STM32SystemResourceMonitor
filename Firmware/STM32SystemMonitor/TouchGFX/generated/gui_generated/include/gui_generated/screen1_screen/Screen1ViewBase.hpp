@@ -8,7 +8,6 @@
 #include <mvp/View.hpp>
 #include <gui/screen1_screen/Screen1Presenter.hpp>
 #include <touchgfx/widgets/Box.hpp>
-#include <touchgfx/widgets/BoxWithBorder.hpp>
 #include <touchgfx/containers/progress_indicators/CircleProgress.hpp>
 #include <touchgfx/widgets/canvas/PainterRGB565.hpp>
 #include <touchgfx/containers/clock/DigitalClock.hpp>
@@ -34,8 +33,6 @@ protected:
      */
     touchgfx::Box __background;
     touchgfx::Box box1;
-    touchgfx::BoxWithBorder boxWithBorder2;
-    touchgfx::BoxWithBorder boxWithBorder1;
     touchgfx::CircleProgress GPUUsageProgress;
     touchgfx::PainterRGB565 GPUUsageProgressPainter;
     touchgfx::CircleProgress CPUUsageProgress;
@@ -46,14 +43,20 @@ protected:
     touchgfx::CircleProgress RAMUsageProgress;
     touchgfx::PainterRGB565 RAMUsageProgressPainter;
     touchgfx::TextArea textArea1_1_1;
-    touchgfx::GraphScroll<100> dynamicGraph1;
-    touchgfx::GraphElementLine dynamicGraph1Line1;
-    touchgfx::PainterRGB565 dynamicGraph1Line1Painter;
-    touchgfx::GraphElementLine dynamicGraph1Line2;
-    touchgfx::PainterRGB565 dynamicGraph1Line2Painter;
-    touchgfx::GraphElementGridX dynamicGraph1MajorXAxisGrid;
-    touchgfx::GraphElementGridY dynamicGraph1MajorYAxisGrid;
-    touchgfx::GraphLabelsY dynamicGraph1MajorYAxisLabel;
+    touchgfx::GraphScroll<1000> CPUTempdynamicGraph;
+    touchgfx::GraphElementLine CPUTempdynamicGraphLine1;
+    touchgfx::PainterRGB565 CPUTempdynamicGraphLine1Painter;
+    touchgfx::GraphElementGridX CPUTempdynamicGraphMajorXAxisGrid;
+    touchgfx::GraphElementGridY CPUTempdynamicGraphMajorYAxisGrid;
+    touchgfx::GraphLabelsY CPUTempdynamicGraphMajorYAxisLabel;
+    touchgfx::GraphScroll<1000> GPUTempdynamicGraph;
+    touchgfx::GraphElementLine GPUTempdynamicGraphLine1;
+    touchgfx::PainterRGB565 GPUTempdynamicGraphLine1Painter;
+    touchgfx::GraphElementGridX GPUTempdynamicGraphMajorXAxisGrid;
+    touchgfx::GraphElementGridY GPUTempdynamicGraphMajorYAxisGrid;
+    touchgfx::GraphLabelsY GPUTempdynamicGraphMajorYAxisLabel;
+    touchgfx::TextArea textArea2;
+    touchgfx::TextArea textArea3;
 
 private:
 

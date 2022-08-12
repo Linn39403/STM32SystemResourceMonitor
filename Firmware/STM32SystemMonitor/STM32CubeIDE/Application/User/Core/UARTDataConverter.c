@@ -9,7 +9,40 @@
 #include "main.h"
 #include "ringbuffer.h"
 extern struct systemInfo_s SystemInfo;
-
+/*
+ * 	char CPUString[16];
+	char GPUString[16];
+	char RAMString[16];
+	char TimeString[16];
+	uint16_t u16CPUUsage;
+	uint16_t u16GPUUsage;
+	uint16_t u16RAMUsage;
+	uint16_t u16CPUTemp;
+	uint16_t u16GPUTemp;
+	uint8_t u8SysTimeHr;
+	uint8_t u8SysTimeMin;
+	uint8_t u8SysTimeSec;
+ * */
+float GetTheValueFromString(const char * inputStr, const char * findthisStr, char terminator)
+{
+	char * found = strstr(inputStr,findthisStr);
+	char str[16] = "";
+	int idx = 0;
+	if( found != NULL)
+	{
+		//skip up to':'
+		found = strstr((const char*)found, (const char *)":");
+		if(found != NULL )
+		{
+			while(*(++found)!=terminator)
+			{
+				str[idx++] = *found;
+			}
+			return atof(str);
+		}
+	}
+	return 0.0;
+}
 void TranslateToCPUTemperature(RingBuffer  *inputRingBuff)
 {
 
@@ -22,57 +55,13 @@ void TranslateToCPUTemperature(RingBuffer  *inputRingBuff)
 	//Copy ring buffer into inputString
 	RingBuffer_Read(inputRingBuff, &inputString[0], length );
 
-	//Clear the strings
-	memset(SystemInfo.CPUTemp,0, sizeof(SystemInfo.CPUTemp));
-	memset(SystemInfo.GPUTemp,0, sizeof(SystemInfo.GPUTemp));
-	memset(SystemInfo.GPUTemp,0, sizeof(SystemInfo.RAMUsage));
-	memset(SystemInfo.SystemTime,0, sizeof(SystemInfo.SystemTime));
-
-	//Search "CPU Total:"
-	found = strstr((const char*)&inputString[0],(const char *)"CPU Total:");
-	if( found != NULL )
-	{
-		//skip up to ":" and copy up to ","
-		found = strstr((const char*)found, (const char *)":");
-		while(*(++found)!=',')
-		{
-			SystemInfo.CPUTemp[resultCnt++] = *found;
-		}
-		SystemInfo.u16CPUUsage = (uint16_t)atof(SystemInfo.CPUTemp);
-		//clear resultString for next usage
-		memset(resultString, 0, sizeof(resultCnt));
-	}
-
-	//Search "GPU Core:"
-	resultCnt = 0;
-	found = strstr((const char*)&inputString[0],(const char *)"GPU Core:");
-	if( found != NULL )
-	{
-    //skip up to ":" and copy up to ","
-		found = strstr((const char*)found, (const char *)":");
-		while(*(++found)!=',')
-		{
-			SystemInfo.GPUTemp[resultCnt++] = *found;
-		}
-		SystemInfo.u16GPUUsage = (uint16_t)atof(SystemInfo.GPUTemp);
-	}
-
-	//Search "Memory :"
-    resultCnt = 0;
-	found = strstr((const char*)&inputString[0],(const char *)"Memory:");
-	if( found != NULL )
-	{
-    //skip up to ":" and copy up to ","
-		found = strstr((const char*)found, (const char *)":");
-		while(*(++found)!=',')
-		{
-			SystemInfo.RAMUsage[resultCnt++] = *found;
-		}
-		SystemInfo.u16RAMUsage = (uint16_t)atof(SystemInfo.RAMUsage);
-	}
+	SystemInfo.fCPUTemp    = GetTheValueFromString((const char*)inputString, "CPUTemp:", ',');
+	SystemInfo.u16CPUUsage = (uint16_t)GetTheValueFromString((const char*)inputString, "CPULoad:", ',');
+	SystemInfo.fGPUTemp    = GetTheValueFromString((const char*)inputString, "GPUTemp:", ',');
+	SystemInfo.u16GPUUsage = (uint16_t)GetTheValueFromString((const char*)inputString, "GPULoad:", ',');
+	SystemInfo.u16RAMUsage = (uint16_t)GetTheValueFromString((const char*)inputString, "RAM:", ',');
 
 	//Search "Time:"
-    resultCnt = 0;
 	found = strstr((const char*)&inputString[0],(const char *)"Time:");
 	if( found != NULL )
 	{
@@ -80,25 +69,26 @@ void TranslateToCPUTemperature(RingBuffer  *inputRingBuff)
 		found = strstr((const char*)found, (const char *)":");
 		while(*(++found)!='-')
 		{
-			SystemInfo.SystemTime[resultCnt++] = *found;
+			resultString[resultCnt++] = *found;
 		}
-		SystemInfo.u8SysTimeHr = (uint8_t)atoi(SystemInfo.SystemTime);
-		memset(SystemInfo.SystemTime,0, sizeof(SystemInfo.SystemTime));
+		SystemInfo.u8SysTimeHr = (uint8_t)atoi(resultString);
+
+		memset(resultString,0, sizeof(resultString));
 		resultCnt = 0;
 		//skip up to "-" and copy up to "-" for min
 		while(*(++found)!='-')
 		{
-			SystemInfo.SystemTime[resultCnt++] = *found;
+			resultString[resultCnt++] = *found;
 		}
-		SystemInfo.u8SysTimeMin = (uint8_t)atoi(SystemInfo.SystemTime);
-		memset(SystemInfo.SystemTime,0, sizeof(SystemInfo.SystemTime));
+		SystemInfo.u8SysTimeMin = (uint8_t)atoi(resultString);
+
+		memset(resultString,0, sizeof(resultString));
 		resultCnt = 0;
 		//skip up to "-" and copy up to "\n" for min
 		while(*(++found)!='\n')
 		{
-			SystemInfo.SystemTime[resultCnt++] = *found;
+			resultString[resultCnt++] = *found;
 		}
-		SystemInfo.u8SysTimeSec = (uint8_t)atoi(SystemInfo.SystemTime);
-		memset(SystemInfo.SystemTime,0, sizeof(SystemInfo.SystemTime));
+		SystemInfo.u8SysTimeSec = (uint8_t)atoi(resultString);
 	}
 }

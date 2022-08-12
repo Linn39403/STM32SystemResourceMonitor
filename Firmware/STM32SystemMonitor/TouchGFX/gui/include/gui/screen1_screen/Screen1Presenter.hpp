@@ -26,7 +26,8 @@ public:
     virtual void deactivate();
 
     virtual ~Screen1Presenter() {};
-    void updateGraph(uint16_t value);
+    void updateCPUTempGraph(float value);
+    void updateGPUTempGraph(float value);
     void updateRAMUsageProgress(uint16_t value);
     void updateCPUUsageProgress(uint16_t value);
     void updateGPUUsageProgress(uint16_t value);

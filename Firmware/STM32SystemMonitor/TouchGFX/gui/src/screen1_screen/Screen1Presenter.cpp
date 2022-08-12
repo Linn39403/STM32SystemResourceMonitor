@@ -17,9 +17,14 @@ void Screen1Presenter::deactivate()
 
 }
 
-void Screen1Presenter::updateGraph(uint16_t value)
+void Screen1Presenter::updateCPUTempGraph(float value)
 {
-	view.updateGraph(value);
+	view.updateCPUTempGraph(value);
+}
+
+void Screen1Presenter::updateGPUTempGraph(float value)
+{
+	view.updateGPUTempGraph(value);
 }
 
 void Screen1Presenter::updateRAMUsageProgress(uint16_t value)

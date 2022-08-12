@@ -1,4 +1,5 @@
 #include <gui/screen1_screen/Screen1View.hpp>
+#include <touchgfx/Color.hpp>
 
 Screen1View::Screen1View()
 {
@@ -15,13 +16,23 @@ void Screen1View::tearDownScreen()
     Screen1ViewBase::tearDownScreen();
 }
 
-void Screen1View::updateGraph(uint16_t value)
+void Screen1View::updateCPUTempGraph(float value)
 {
-	dynamicGraph1.addDataPoint(value);
+	CPUTempdynamicGraph.addDataPoint(value);
+}
+
+void Screen1View::updateGPUTempGraph(float value)
+{
+	GPUTempdynamicGraph.addDataPoint(value);
 }
 
 void Screen1View::updateRAMUsageProgress(uint16_t value)
 {
+	if( value > 30 )
+	{
+		RAMUsageProgressPainter.setColor(Color::getColorFromRGB(0, 222, 113));
+	}
+	RAMUsageProgress.setPainter(RAMUsageProgressPainter);
 	RAMUsageProgress.setValue(value);
 }
 

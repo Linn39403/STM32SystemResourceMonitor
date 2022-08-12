@@ -21,6 +21,8 @@ public:
     virtual void updateCPUUsageProgress(uint16_t value) {}
     virtual void updateGPUUsageProgress(uint16_t value) {}
     virtual void updateSystemTime(uint8_t hr, uint8_t min, uint8_t sec) {}
+    virtual void updateCPUTempGraph(float value) {}
+    virtual void updateGPUTempGraph(float value) {}
 protected:
     Model* model;
 };
