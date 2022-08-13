@@ -6,6 +6,24 @@
   <Texts>
     <TextGroup Id="Group1" />
     <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_JH0O" Alignment="Left" TypographyId="Typography_01">
+        <Translation Language="GB">10</Translation>
+      </Text>
+      <Text Id="__SingleUse_9QCN" Alignment="Left" TypographyId="Typography_01">
+        <Translation Language="GB">10</Translation>
+      </Text>
+      <Text Id="__SingleUse_AICN" Alignment="Left" TypographyId="Typography_01">
+        <Translation Language="GB">10</Translation>
+      </Text>
+      <Text Id="__SingleUse_OZT4" Alignment="Left" TypographyId="Typography_01">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_G62E" Alignment="Left" TypographyId="Typography_01">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_THQA" Alignment="Left" TypographyId="Typography_01">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
       <Text Id="__SingleUse_KYNG" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">Temperature</Translation>
       </Text>
@@ -37,6 +55,6 @@
     <Typography Id="Large" Font="GOTHIC.TTF" Size="40" Bpp="4" Direction="LTR" FallbackCharacter="?" WidgetWildcardCharacters="0123456789 :APM" />
     <Typography Id="Small" Font="verdana.ttf" Size="10" Bpp="4" Direction="LTR" FallbackCharacter="?" />
     <Typography Id="Typography_00" Font="arial.ttf" Size="10" Bpp="4" Direction="LTR" FallbackCharacter="?" WidgetWildcardCharacters="-., 0123456789" />
-    <Typography Id="Typography_01" Font="verdana.ttf" Size="20" Bpp="4" Direction="LTR" FallbackCharacter="?" />
+    <Typography Id="Typography_01" Font="verdana.ttf" Size="20" Bpp="4" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="0-9" />
   </Typographies>
 </TextDatabase>

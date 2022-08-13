@@ -8,8 +8,72 @@
           {
             "Type": "Box",
             "Name": "box1",
+            "X": 3,
             "Width": 480,
             "Height": 272
+          },
+          {
+            "Type": "TextArea",
+            "Name": "GPUUsageTxt",
+            "X": 140,
+            "Y": 150,
+            "Width": 25,
+            "Height": 24,
+            "TextId": "__SingleUse_G62E",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 240,
+              "Green": 10,
+              "Blue": 10
+            },
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "__SingleUse_9QCN",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "RAMUsageTxt",
+            "X": 140,
+            "Y": 218,
+            "Width": 25,
+            "Height": 24,
+            "TextId": "__SingleUse_OZT4",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 240,
+              "Green": 10,
+              "Blue": 10
+            },
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "__SingleUse_AICN",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "CPUUsageTxt",
+            "X": 140,
+            "Y": 82,
+            "Width": 25,
+            "Height": 24,
+            "TextId": "__SingleUse_THQA",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 240,
+              "Green": 10,
+              "Blue": 10
+            },
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "__SingleUse_JH0O",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
           },
           {
             "Type": "CircleProgress",
@@ -144,18 +208,17 @@
           {
             "Type": "DynamicGraph",
             "Name": "CPUTempdynamicGraph",
-            "X": 214,
-            "Y": 100,
-            "Width": 259,
-            "Height": 162,
+            "X": 192,
+            "Y": 67,
+            "Width": 280,
+            "Height": 200,
             "DataSeed": 1901280323,
             "NumberOfValues": 1000,
-            "MaxY": 80.0,
+            "MaxY": 90.0,
             "MinY": 25.0,
             "Precision": "0.1",
             "LastIndex": 999,
             "XAxisScale": 1.0,
-            "InsertRandomValues": true,
             "LabelSizeTop": 10,
             "LabelSizeBottom": 10,
             "LabelSizeLeft": 30,
@@ -175,22 +238,23 @@
             "XAxisGrid": {
               "Type": "GraphGrid",
               "Color": {
-                "Red": 87,
-                "Green": 87,
-                "Blue": 87
+                "Red": 15,
+                "Green": 15,
+                "Blue": 15
               },
-              "Interval": 1000.0,
+              "Interval": 200.0,
               "LineWidth": 1
             },
             "YAxisGrid": {
               "Type": "GraphGrid",
               "Color": {
-                "Red": 87,
-                "Green": 87,
-                "Blue": 87
+                "Red": 15,
+                "Green": 15,
+                "Blue": 15
               },
               "Interval": 5.0,
-              "LineWidth": 1
+              "LineWidth": 1,
+              "Alpha": 125
             },
             "YAxisLabel": {
               "Type": "GraphLabel",
@@ -209,18 +273,17 @@
           {
             "Type": "DynamicGraph",
             "Name": "GPUTempdynamicGraph",
-            "X": 214,
-            "Y": 100,
-            "Width": 259,
-            "Height": 162,
+            "X": 192,
+            "Y": 67,
+            "Width": 280,
+            "Height": 200,
             "DataSeed": 510380662,
             "NumberOfValues": 1000,
-            "MaxY": 80.0,
+            "MaxY": 90.0,
             "MinY": 25.0,
             "Precision": "0.1",
             "LastIndex": 999,
             "XAxisScale": 1.0,
-            "InsertRandomValues": true,
             "LabelSizeTop": 10,
             "LabelSizeBottom": 10,
             "LabelSizeLeft": 30,
@@ -239,22 +302,23 @@
             "XAxisGrid": {
               "Type": "GraphGrid",
               "Color": {
-                "Red": 87,
-                "Green": 87,
-                "Blue": 87
+                "Red": 15,
+                "Green": 15,
+                "Blue": 15
               },
-              "Interval": 100.0,
+              "Interval": 200.0,
               "LineWidth": 1
             },
             "YAxisGrid": {
               "Type": "GraphGrid",
               "Color": {
-                "Red": 87,
-                "Green": 87,
-                "Blue": 87
+                "Red": 15,
+                "Green": 15,
+                "Blue": 15
               },
               "Interval": 5.0,
-              "LineWidth": 1
+              "LineWidth": 1,
+              "Alpha": 125
             },
             "YAxisLabel": {
               "Type": "GraphLabel",
@@ -274,7 +338,7 @@
             "Type": "TextArea",
             "Name": "textArea2",
             "X": 285,
-            "Y": 252,
+            "Y": 256,
             "Width": 117,
             "Height": 11,
             "TextId": "__SingleUse_HCYU",
@@ -289,17 +353,18 @@
           {
             "Type": "TextArea",
             "Name": "textArea3",
-            "X": 275,
-            "Y": 82,
+            "X": 345,
+            "Y": 52,
             "Width": 127,
             "Height": 24,
             "TextId": "__SingleUse_KYNG",
             "TextRotation": "0",
             "Color": {
-              "Red": 166,
-              "Green": 162,
-              "Blue": 162
+              "Red": 71,
+              "Green": 71,
+              "Blue": 71
             },
+            "Alpha": 89,
             "AutoSize": true
           }
         ],
