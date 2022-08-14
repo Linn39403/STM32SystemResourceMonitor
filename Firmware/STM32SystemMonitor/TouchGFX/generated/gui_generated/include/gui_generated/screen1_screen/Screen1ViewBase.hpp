@@ -34,6 +34,8 @@ protected:
      */
     touchgfx::Box __background;
     touchgfx::Box box1;
+    touchgfx::Box box3;
+    touchgfx::Box box2;
     touchgfx::TextAreaWithOneWildcard GPUUsageTxt;
     touchgfx::TextAreaWithOneWildcard RAMUsageTxt;
     touchgfx::TextAreaWithOneWildcard CPUUsageTxt;

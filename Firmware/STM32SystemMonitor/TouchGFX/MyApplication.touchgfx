@@ -8,9 +8,42 @@
           {
             "Type": "Box",
             "Name": "box1",
-            "X": 3,
             "Width": 480,
-            "Height": 272
+            "Height": 272,
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "Alpha": 186
+          },
+          {
+            "Type": "Box",
+            "Name": "box3",
+            "X": 3,
+            "Y": 52,
+            "Width": 183,
+            "Height": 215,
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "Alpha": 166
+          },
+          {
+            "Type": "Box",
+            "Name": "box2",
+            "X": 192,
+            "Y": 52,
+            "Width": 280,
+            "Height": 215,
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "Alpha": 166
           },
           {
             "Type": "TextArea",
@@ -121,9 +154,10 @@
           {
             "Type": "DigitalClock",
             "Name": "digitalClock1",
-            "X": 152,
-            "Width": 190,
-            "Height": 52,
+            "X": 3,
+            "Y": 10,
+            "Width": 102,
+            "Height": 29,
             "TextColor": {
               "Red": 44,
               "Green": 44,
@@ -337,8 +371,8 @@
           {
             "Type": "TextArea",
             "Name": "textArea2",
-            "X": 285,
-            "Y": 256,
+            "X": 350,
+            "Y": 257,
             "Width": 117,
             "Height": 11,
             "TextId": "__SingleUse_HCYU",
@@ -359,12 +393,6 @@
             "Height": 24,
             "TextId": "__SingleUse_KYNG",
             "TextRotation": "0",
-            "Color": {
-              "Red": 71,
-              "Green": 71,
-              "Blue": 71
-            },
-            "Alpha": 89,
             "AutoSize": true
           }
         ],

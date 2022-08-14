@@ -16,8 +16,17 @@ Screen1ViewBase::Screen1ViewBase()
     __background.setPosition(0, 0, 480, 272);
     __background.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
 
-    box1.setPosition(3, 0, 480, 272);
-    box1.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+    box1.setPosition(0, 0, 480, 272);
+    box1.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    box1.setAlpha(186);
+
+    box3.setPosition(3, 52, 183, 215);
+    box3.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    box3.setAlpha(166);
+
+    box2.setPosition(192, 52, 280, 215);
+    box2.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    box2.setAlpha(166);
 
     GPUUsageTxt.setXY(140, 150);
     GPUUsageTxt.setColor(touchgfx::Color::getColorFromRGB(240, 10, 10));
@@ -69,7 +78,7 @@ Screen1ViewBase::Screen1ViewBase()
     CPUUsageProgress.setPainter(CPUUsageProgressPainter);
     CPUUsageProgress.setValue(60);
 
-    digitalClock1.setPosition(152, 0, 190, 52);
+    digitalClock1.setPosition(3, 10, 102, 29);
     digitalClock1.setColor(touchgfx::Color::getColorFromRGB(44, 44, 222));
     digitalClock1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_6825));
     digitalClock1.displayLeadingZeroForHourIndicator(true);
@@ -164,19 +173,20 @@ Screen1ViewBase::Screen1ViewBase()
     GPUTempdynamicGraphLine1.setLineWidth(2);
     GPUTempdynamicGraph.addGraphElement(GPUTempdynamicGraphLine1);
 
-    textArea2.setXY(285, 256);
+    textArea2.setXY(350, 257);
     textArea2.setColor(touchgfx::Color::getColorFromRGB(130, 126, 126));
     textArea2.setLinespacing(0);
     textArea2.setTypedText(touchgfx::TypedText(T___SINGLEUSE_HCYU));
 
     textArea3.setXY(345, 52);
-    textArea3.setColor(touchgfx::Color::getColorFromRGB(71, 71, 71));
+    textArea3.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     textArea3.setLinespacing(0);
-    textArea3.setAlpha(89);
     textArea3.setTypedText(touchgfx::TypedText(T___SINGLEUSE_KYNG));
 
     add(__background);
     add(box1);
+    add(box3);
+    add(box2);
     add(GPUUsageTxt);
     add(RAMUsageTxt);
     add(CPUUsageTxt);
