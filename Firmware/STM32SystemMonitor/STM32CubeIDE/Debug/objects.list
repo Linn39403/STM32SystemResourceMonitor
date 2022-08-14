@@ -46,6 +46,7 @@
 "./Application/User/generated/TypedTextDatabase.o"
 "./Application/User/generated/UnmappedDataFont.o"
 "./Application/User/generated/image_Blue_ProgressIndicators_bg_small_circle_indicator_bg_line_full.o"
+"./Application/User/generated/image_macos-big-sur_480272.o"
 "./Application/User/gui/FrontendApplication.o"
 "./Application/User/gui/Model.o"
 "./Application/User/gui/Screen1Presenter.o"

@@ -6,16 +6,11 @@
         "CanvasBufferSize": 7200,
         "Components": [
           {
-            "Type": "Box",
-            "Name": "box1",
+            "Type": "Image",
+            "Name": "image1",
             "Width": 480,
             "Height": 272,
-            "Color": {
-              "Red": 255,
-              "Green": 255,
-              "Blue": 255
-            },
-            "Alpha": 186
+            "RelativeFilename": "macos-big-sur_480272.png"
           },
           {
             "Type": "Box",
@@ -29,7 +24,7 @@
               "Green": 255,
               "Blue": 255
             },
-            "Alpha": 166
+            "Alpha": 168
           },
           {
             "Type": "Box",
@@ -43,7 +38,20 @@
               "Green": 255,
               "Blue": 255
             },
-            "Alpha": 166
+            "Alpha": 168
+          },
+          {
+            "Type": "Box",
+            "Name": "box1",
+            "Y": 46,
+            "Width": 480,
+            "Height": 226,
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "Alpha": 100
           },
           {
             "Type": "TextArea",
@@ -155,13 +163,13 @@
             "Type": "DigitalClock",
             "Name": "digitalClock1",
             "X": 3,
-            "Y": 10,
+            "Y": 7,
             "Width": 102,
             "Height": 29,
             "TextColor": {
-              "Red": 44,
-              "Green": 44,
-              "Blue": 222
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
             },
             "TextId": "__SingleUse_6825",
             "DisplaySeconds": true,
@@ -178,11 +186,6 @@
             "Height": 24,
             "TextId": "__SingleUse_D2GZ",
             "TextRotation": "0",
-            "Color": {
-              "Red": 151,
-              "Green": 151,
-              "Blue": 153
-            },
             "AutoSize": true
           },
           {
@@ -194,11 +197,6 @@
             "Height": 24,
             "TextId": "__SingleUse_P8Y9",
             "TextRotation": "0",
-            "Color": {
-              "Red": 151,
-              "Green": 151,
-              "Blue": 153
-            },
             "AutoSize": true
           },
           {
@@ -232,11 +230,6 @@
             "Height": 24,
             "TextId": "__SingleUse_P0Y2",
             "TextRotation": "0",
-            "Color": {
-              "Red": 151,
-              "Green": 151,
-              "Blue": 153
-            },
             "AutoSize": true
           },
           {

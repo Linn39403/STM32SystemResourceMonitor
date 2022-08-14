@@ -8,6 +8,7 @@
 #include <mvp/View.hpp>
 #include <gui/screen1_screen/Screen1Presenter.hpp>
 #include <touchgfx/widgets/Box.hpp>
+#include <touchgfx/widgets/Image.hpp>
 #include <touchgfx/widgets/TextAreaWithWildcard.hpp>
 #include <touchgfx/containers/progress_indicators/CircleProgress.hpp>
 #include <touchgfx/widgets/canvas/PainterRGB565.hpp>
@@ -33,9 +34,10 @@ protected:
      * Member Declarations
      */
     touchgfx::Box __background;
-    touchgfx::Box box1;
+    touchgfx::Image image1;
     touchgfx::Box box3;
     touchgfx::Box box2;
+    touchgfx::Box box1;
     touchgfx::TextAreaWithOneWildcard GPUUsageTxt;
     touchgfx::TextAreaWithOneWildcard RAMUsageTxt;
     touchgfx::TextAreaWithOneWildcard CPUUsageTxt;

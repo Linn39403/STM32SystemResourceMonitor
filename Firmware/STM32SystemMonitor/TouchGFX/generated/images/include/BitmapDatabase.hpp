@@ -7,6 +7,7 @@
 #include <touchgfx/Bitmap.hpp>
 
 const uint16_t BITMAP_BLUE_PROGRESSINDICATORS_BG_SMALL_CIRCLE_INDICATOR_BG_LINE_FULL_ID = 0;
+const uint16_t BITMAP_MACOS_BIG_SUR_480272_ID = 1;
 
 namespace BitmapDatabase
 {

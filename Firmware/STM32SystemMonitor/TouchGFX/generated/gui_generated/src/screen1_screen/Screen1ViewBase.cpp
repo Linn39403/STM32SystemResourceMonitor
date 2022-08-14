@@ -3,8 +3,8 @@
 /*********************************************************************************/
 #include <gui_generated/screen1_screen/Screen1ViewBase.hpp>
 #include <touchgfx/Color.hpp>
-#include <texts/TextKeysAndLanguages.hpp>
 #include <BitmapDatabase.hpp>
+#include <texts/TextKeysAndLanguages.hpp>
 #include <touchgfx/canvas_widget_renderer/CanvasWidgetRenderer.hpp>
 
 
@@ -16,17 +16,20 @@ Screen1ViewBase::Screen1ViewBase()
     __background.setPosition(0, 0, 480, 272);
     __background.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
 
-    box1.setPosition(0, 0, 480, 272);
-    box1.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    box1.setAlpha(186);
+    image1.setXY(0, 0);
+    image1.setBitmap(touchgfx::Bitmap(BITMAP_MACOS_BIG_SUR_480272_ID));
 
     box3.setPosition(3, 52, 183, 215);
     box3.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    box3.setAlpha(166);
+    box3.setAlpha(168);
 
     box2.setPosition(192, 52, 280, 215);
     box2.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    box2.setAlpha(166);
+    box2.setAlpha(168);
+
+    box1.setPosition(0, 46, 480, 226);
+    box1.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    box1.setAlpha(100);
 
     GPUUsageTxt.setXY(140, 150);
     GPUUsageTxt.setColor(touchgfx::Color::getColorFromRGB(240, 10, 10));
@@ -78,20 +81,20 @@ Screen1ViewBase::Screen1ViewBase()
     CPUUsageProgress.setPainter(CPUUsageProgressPainter);
     CPUUsageProgress.setValue(60);
 
-    digitalClock1.setPosition(3, 10, 102, 29);
-    digitalClock1.setColor(touchgfx::Color::getColorFromRGB(44, 44, 222));
+    digitalClock1.setPosition(3, 7, 102, 29);
+    digitalClock1.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     digitalClock1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_6825));
     digitalClock1.displayLeadingZeroForHourIndicator(true);
     digitalClock1.setDisplayMode(touchgfx::DigitalClock::DISPLAY_24_HOUR);
     digitalClock1.setTime24Hour(10, 10, 0);
 
     textArea1.setXY(6, 82);
-    textArea1.setColor(touchgfx::Color::getColorFromRGB(151, 151, 153));
+    textArea1.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     textArea1.setLinespacing(0);
     textArea1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_D2GZ));
 
     textArea1_1.setXY(6, 150);
-    textArea1_1.setColor(touchgfx::Color::getColorFromRGB(151, 151, 153));
+    textArea1_1.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     textArea1_1.setLinespacing(0);
     textArea1_1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_P8Y9));
 
@@ -109,7 +112,7 @@ Screen1ViewBase::Screen1ViewBase()
     RAMUsageProgress.setValue(60);
 
     textArea1_1_1.setXY(3, 218);
-    textArea1_1_1.setColor(touchgfx::Color::getColorFromRGB(151, 151, 153));
+    textArea1_1_1.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     textArea1_1_1.setLinespacing(0);
     textArea1_1_1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_P0Y2));
 
@@ -184,9 +187,10 @@ Screen1ViewBase::Screen1ViewBase()
     textArea3.setTypedText(touchgfx::TypedText(T___SINGLEUSE_KYNG));
 
     add(__background);
-    add(box1);
+    add(image1);
     add(box3);
     add(box2);
+    add(box1);
     add(GPUUsageTxt);
     add(RAMUsageTxt);
     add(CPUUsageTxt);
