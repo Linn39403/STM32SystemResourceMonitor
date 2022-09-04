@@ -95,9 +95,10 @@ namespace HardwareResourceMonitor
         }
         static void Main(string[] args)
         {
-            //Temp Choose COM7
+            Console.Write("Enter COMPort (COMx) :");
+            string SerialPortString = Console.ReadLine();
             _serialPort = new SerialPort();
-            _serialPort.PortName = "COM9";
+            _serialPort.PortName = SerialPortString;
             _serialPort.BaudRate = 115200;
             _serialPort.DataBits = 8;
             _serialPort.Parity = Parity.None;
